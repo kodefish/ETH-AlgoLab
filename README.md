@@ -11,10 +11,10 @@ g++ -Wall -O3 filename.cpp -o filename.o
 
 To run the file with a given input and redirect output to a file
 ```bash
-./filename.o < testsets/test[i].in > test[i].out
+./filename.o < testsets/test{i}.in > test{i}.out
 ```
 
 To compare with the expected output, use `diff`
 ```bash
-diff test[i].out testsets/test[i].out
+diff test{i}.out testsets/test{i}.out
 ```
