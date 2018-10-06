@@ -13,4 +13,4 @@ for every transition from u to v
     min_dist = min(1 + max_dist_from[v])
     max_dist = min(1 + min_dist_from[v])
 ```
-Notice that `min_dist` is `1 + max_dist_from[...]`. This is done on purpose. Since the next move will be played by the adversary, we must take into account that he will try to maximize our distance to the target. The same reasoning follows for `max_dist`.
+Note that `min_dist` is `1 + max_dist_from[...]`. This is done on purpose. Since the next move will be played by the adversary, we must take into account that he will try to maximize our distance to the target. The same reasoning follows for `max_dist`.
