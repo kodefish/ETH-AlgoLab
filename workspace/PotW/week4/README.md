@@ -56,6 +56,6 @@ This recursion basically just computes the max subarray possible for every index
 
 #### Recursive step
 The recursive step is where we take the defenition from above:
-$f(num_attackers, start_idx) = max_{j from i to end-1}(M[j] - j + 1 + f(num_attackers-1, M[j] + 1))$
-So here we compute the number of attackers if we start at j, plus the best case taking everything after the sub-array starting at $j$.
+$f(num_attackers, start_idx) = max_{j from i to end-1}(M[j] - j + 1 + f(num_attackers-1, M[j] + 1))$  
+So here we compute the number of attackers if we start at j, plus the best case taking everything after the sub-array starting at $j$.  
 Before computing the value at $j$, if $M[j] = -1$, then we just skip it (check out the code for implementation details like this).
