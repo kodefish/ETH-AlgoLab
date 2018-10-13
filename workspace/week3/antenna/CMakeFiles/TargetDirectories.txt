@@ -1,3 +1,0 @@
-/home/kodefish/Documents/ETH/Master/MA1/Algo Lab/workspace/week3/antenna/CMakeFiles/rebuild_cache.dir
-/home/kodefish/Documents/ETH/Master/MA1/Algo Lab/workspace/week3/antenna/CMakeFiles/antenna.dir
-/home/kodefish/Documents/ETH/Master/MA1/Algo Lab/workspace/week3/antenna/CMakeFiles/edit_cache.dir
