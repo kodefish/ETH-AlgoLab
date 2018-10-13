@@ -8,18 +8,18 @@ Pre-processing data, then double dynamic programming (yeah this one is a fun one
 ### Intuition
 The idea behind the approach here was to use DP to test out all the possible combinations. Let's look at an example.  
 Given the line of defenders [3 1 1 1 1 2], 2 attackers each with strength 3, we have multiple attack strategies:  
-(3) (1 1 1) 1 2 -> 4 attacked
-(3) 1 (1 1 1) 2 -> 4 attacked
-(3) 1 1 1 (1 2) -> 3 attacked
-3 (1 1 1) (1 2) -> 5 attacked 
+(3) (1 1 1) 1 2 -> 4 attacked  
+(3) 1 (1 1 1) 2 -> 4 attacked  
+(3) 1 1 1 (1 2) -> 3 attacked  
+3 (1 1 1) (1 2) -> 5 attacked  
 
 As we can see, there are 4 non-failing strategies. the one we want to find is the last one, where we can take down 5 defenders.
 
 How did we find these strategies? First we choose the defenders attacked by the first attacker, and we do the same, for one less attacker, on the left-over array of defenders (to the right). This problem is slightly similar to the knapsack problem, where we need to decide if we want to keep the current item or not.
 
-From the statement above we can derive the following recursion:
-Base case (1 attacker): $f(num_attackers, start_idx) = max_{j from start_idx to end and M[j] != -1}(M[j] - j + 1)$
-Recursion (more than 1 attacker): $f(num_attackers, start_idx) = max_{j from start_idx to end-1}(M[j] - j + 1 + f(num_attackers - 1, M[j] + 1)$
+From the statement above we can derive the following recursion:  
+Base case (1 attacker): $f(num_attackers, start_idx) = max_{j from start_idx to end and M[j] != -1}(M[j] - j + 1)$  
+Recursion (more than 1 attacker): $f(num_attackers, start_idx) = max_{j from start_idx to end-1}(M[j] - j + 1 + f(num_attackers - 1, M[j] + 1)$  
 Where M is an array we compute during pre-processing, containing all the potential attacked-sub-arrays. 
 
 ### Pre-processing
