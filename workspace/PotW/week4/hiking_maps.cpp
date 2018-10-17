@@ -16,10 +16,7 @@ typedef std::vector<Segment>    seg_vec;
 typedef std::vector<Triangle>   tri_vec;
 
 void testcase(){
-    std::cout << "testcase" << std::endl;
     int m, n; std::cin >> m >> n;
-
-    std::cout << "read input" << std::endl;
 
     seg_vec paths(m-1);
     int p_x, p_y; std::cin >> p_x >> p_y;
@@ -59,29 +56,46 @@ void testcase(){
     for(int i = 0; i < m-1; i++) {
         // Find all triangles that contain the path i
         for(int j = 0; j < n; j++) {
-            std::cout << paths[i] << " - " << map_parts[j] << std::endl;
             if (CGAL::do_intersect(paths[i], map_parts[j])) {
                 auto o = CGAL::intersection(paths[i], map_parts[j]);
                 if (const Segment* op = boost::get<Segment>(&*o)){
-                    std::cout << "\t" << *op << " - " << paths[i];
                     if (*op == paths[i]){
-                        std::cout << " pushing back " << j;
                         path_to_tri[i].push_back(j);
                     }
-                    std::cout << std::endl;
                 }
             }
         }
     }
 
-
-    for(int i = 0; i < m-1; i++) {
-        std::cout << i << ": ";
-        for(int j = 0; j < path_to_tri[i].size(); j++) {
-            std::cout << path_to_tri[i][j] << " ";
+    // Sliding window
+    std::vector<int> index(m-1, 0);
+    bool end_not_reached = true;
+    int min_tri_cost = INT_MAX;
+    while(end_not_reached) {
+        int min_tri = INT_MAX, max__tri = INT_MIN;
+        int min_path_idx = INT_MAX;
+        for (int i = 0; i < m - 1; i++) {
+            int i_path_tri = path_to_tri[i][index[i]];
+            if (i_path_tri < min_tri) {
+                min_tri = i_path_tri;
+                min_path_idx = i; 
+            }
+            if (max_tri < i_path_tri) {
+                max_tri = i_path_tri;
+            }
         }
-        std::cout << std::endl;
+
+        int curr_cost = max_tri - min_tri + 1;
+        if (curr_cost < min_tri_cost) {
+            min_tri_cost = curr_cost;
+        }
+
+        if (++index[min_path_idx] == path_to_tri[min_path_idx].size()) {
+            end_not_reached = false;
+        }
     }
+
+    std::cout << min_tri_cost << std::endl;
 
 }
 
