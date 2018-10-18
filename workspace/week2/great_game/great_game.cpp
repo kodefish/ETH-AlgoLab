@@ -30,7 +30,7 @@ void testcase(){
     int b; std::cin >> b;
     
 
-    // Adjecency list to represent transitions
+    // Adjacency list to represent transitions
     std::vector<std::vector<int>> adjacency_list(n, std::vector<int>(0 , -1));
     for(int i = 0; i < m; ++i) {
         int u; std::cin >> u; 
@@ -53,6 +53,7 @@ void testcase(){
         // For every transition from u to v
         for(int transition = 0; transition < adjacency_list[i].size(); ++transition) {
             int j = adjacency_list[i][transition]; 
+            // Compute best and worst choice of transition
             int min_dist_via_j = 1 + std::get<0>(max_dist_to_target[j]);
             if (min_dist_via_j < std::get<0>(min_dist)) {
                 min_dist = std::make_tuple(min_dist_via_j, j);
@@ -66,7 +67,8 @@ void testcase(){
         max_dist_to_target[i] = max_dist;
     }
 
-    // Simulate a game - move red and black meeple
+    // Simulate a game - move red and black meeple through their respecitve sequences
+    // Count the number of moves made by each
     int dist_from_start_r = std::get<1>(min_dist_to_target[n - r]) + 1;
     std::tuple<int, int> r_pos = std::make_tuple(dist_from_start_r, n - r);
     int r_moves = simulate_game(min_dist_to_target, max_dist_to_target, r_pos, false);
@@ -75,14 +77,23 @@ void testcase(){
     std::tuple<int, int> b_pos = std::make_tuple(dist_from_start_b, n - b);
     int b_moves = simulate_game(min_dist_to_target, max_dist_to_target, b_pos, true);
 
-    // should be 23 and 25
-    //std::cout << r_moves << " " << b_moves << std::endl;  
-
+    // The winner is the one with less moves
+    // If the number of moves is equal
     if (r_moves < b_moves) {
+        // Sherlock wins
         std::cout << "0" << std::endl;
     } else if (r_moves > b_moves){
+        // Moriarty wins
         std::cout << "1" << std::endl;
     } else {
+        // Special case: number of moves is equal
+        // The meeples move 2 times in a row, but staggered over each move, like this
+        // 1. r b
+        // 2. b r
+        // 3. r b
+        // 4. b r
+        // So if the number of moves is even, then the black meeple will end on the target first
+        // and if the number of moves is odd, then the red will win.
         std::cout << 1 - r_moves % 2 << std::endl; 
     }
 
