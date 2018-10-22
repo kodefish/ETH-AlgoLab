@@ -18,3 +18,8 @@ To compare with the expected output, use `diff`
 ```bash
 diff test{i}.out testsets/test{i}.out
 ```
+
+Alternatively, you can do the previous in one line
+```bash
+diff <(./filename.o < testsets/test{i}.in) testsets/test{i}.out
+```
