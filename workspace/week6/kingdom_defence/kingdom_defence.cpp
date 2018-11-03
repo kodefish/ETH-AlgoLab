@@ -1,10 +1,13 @@
 #include <iostream>
 #include <map>
+#include <climits>
 #include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/push_relabel_max_flow.hpp>
 
-typedef boost::adjacency_list_traits<boost::vecS, boost::vecS, boost::directedS> Traits;
 
-typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
+typedef boost::adjacency_list_traits<boost::vecS, boost::vecS, boost::bidirectionalS> Traits;
+
+typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS,
 			      boost::no_property,
 			      boost::property<boost::edge_capacity_t, long,
 					      boost::property<boost::edge_residual_capacity_t, long,
@@ -42,80 +45,93 @@ public:
 };
 
 void testcase() {
-  // Read input
+  // 0. Read in values
   int l, p; std::cin >> l >> p;
 
-  // Input graph (num locations + source + target)
-  Graph input_graph(l + 2);
-  std::map<Edge, int> min_capacity_map;
-  std::map<Edge, int> max_capacity_map;
-  int s = l;
-  int t = s + 1;
-
-  // Read locations
+  // Read in locations + num garrisoned and num needed to defend
+  std::vector<int> num_garrisoned(l), num_defenders(l);
+  int total_num_defenders = 0;
   for(int i = 0; i < l; i++) {
     int g_i, d_i; std::cin >> g_i >> d_i;
-    // insert s -> i edge
-    Edge e_s, e_t; bool success;
-    boost::tie(e_s, success) = boost::add_edge(s, i, input_graph);
-    min_capacity_map[e_s] = 0; // min num of soldiers is 0
-    max_capacity_map[e_s] = g_i; // location i can supply g_i soldiers
-    boost::tie(e_t, success) = boost::add_edge(i, t, input_graph);
-    min_capacity_map[e_t] = 0; // min num of soldiers is 0
-    max_capacity_map[e_t] = d_i; // location i needs d_i soldiers to defend itself
+    num_garrisoned[i] = g_i;
+    num_defenders[i] = d_i;
+    total_num_defenders += d_i;
   }
 
-  // Read paths
+  // Track input graph, but keep weights seperate
+  // Done so that it's easier to read incoming and outgoing edges for vertices
+  Graph input_g(l);
+  std::map<Edge, int> min_cap, max_cap;
+
+  // Read in paths
   for(int i = 0; i < p; i++) {
-    int f_i, t_i, min_i, max_i; std::cin >> f_i >> t_i >> min_i >> max_i; 
-    Edge e; bool success;
-    boost::tie(e, success) = boost::add_edge(f_i, t_i, input_graph); // Path i from f_i to t_i
-    min_capacity_map[e] = min_i;
-    max_capacity_map[e] = max_i;
+    int f_i, t_i, min_i, max_i; std::cin >> f_i >> t_i >> min_i >> max_i;
+
+    // Add edge to input graph
+    Edge e; bool s;
+    boost::tie(e, s) = boost::add_edge(f_i, t_i, input_g);
+
+    // Record min and max capacities
+    min_cap[e] = min_i;
+    max_cap[e] = max_i;
   }
 
-  // Reduce problem to max-flow problem
-  // Add new source and target s' and t'
-  Graph g(l + 2 + 2);
-  int s_p = t + 1;
-  int t_p = s_p + 1;
-
-  // Define accessors for interior proprety maps
+  // Create graph with sink and target
+  Graph g(l + 2);
+  int s = l;
+  int t = s + 1;
   EdgeCapacityMap capacity_map = boost::get(boost::edge_capacity, g);
-  ResidualCapacityMap residual_map = boost::get(boost::edge_residual_capacity, g);
   EdgeReverseMap reverse_map = boost::get(boost::edge_reverse, g);
 
+  // Create edge adder helper
   EdgeAdder ea(g, capacity_map, reverse_map);
 
-  // For every vertex v in input_graph
-  Graph::vertex_iterator viter, vend;
-  for(boost::tie(viter, vend) = boost::vertices(input_graph); viter != vend; viter++){
-    Vertex v = *viter;
-    // Compute sum l of incoming lower bounds
-    // Add edge s' -> v with capacity l
-    // Compute sum u of outgoing lower bounds
-    // Add edge v -> t' with capacity u
+  // 1. For every vertex v
+  // Compute s -> v, with c(s -> v) = g_v + sum(min(in(v)) - sum(min(v))
+  // Compute v -> t, with c(v -> t) = d_v
+  for(Vertex v = 0; v < l; v++) {
+    // 1.a Compute sum(min(in(v)))
+    int sum_min_in = 0;
+    Graph::in_edge_iterator in_itr, in_end;
+    for(boost::tie(in_itr, in_end) = boost::in_edges(v, input_g); in_itr != in_end; in_itr++) {
+      sum_min_in += min_cap[*in_itr];
+    }
+
+    // 1.b Compute sum(min(out(v)))
+    int sum_min_out = 0;
+    Graph::out_edge_iterator out_itr, out_end;
+    for(boost::tie(out_itr, out_end) = boost::out_edges(v, input_g); out_itr != out_end; out_itr++) {
+      sum_min_out += min_cap[*out_itr];
+    }
+
+    // 1.c add edge s -> v with capacity g_i + sum_min_in - sum_min_out
+    int s_v_cap =  num_garrisoned[v] + sum_min_in - sum_min_out;
+    if (s_v_cap > 0)
+      ea.add_edge(s, v, s_v_cap);
+
+    // 1.d add edge v -> with capacity d_i
+    ea.add_edge(v, t, num_defenders[v]);
   }
 
-  // For every edge e in input_graph
-  Graph::edge_iterator eiter, eend;
-  for(boost::tie(eiter, eend) = boost::edges(input_graph); eiter != eend; eiter++){
-    Edge e = *eiter;
-    // Add edge u -> v with capacity c = u(u -> v) - l(u -> v)
-    int min_cap = min_capacity_map[e];
-    int max_cap = max_capacity_map[e];
-    int e_cap = max_cap - min_cap;
-
-    ea.add_edge(boost::source(e), boost::target(e), e_cap);
+  // 2. For every edge u -> v (excluding s and t)
+  // Compute u -> v, with c(u -> v) = max(u -> v) - min(u -> v)
+  Graph::edge_iterator e_itr, e_end;
+  for(boost::tie(e_itr, e_end) = boost::edges(input_g); e_itr != e_end; e_itr++) {
+    ea.add_edge(boost::source(*e_itr, input_g),
+	     boost::target(*e_itr, input_g),
+	     max_cap[*e_itr] - min_cap[*e_itr]);
   }
 
-  // Add edge t' -> s' with capacity INFINITY
+  // 3. Compute (s, t)-flow f
+  long f = boost::push_relabel_max_flow(g, s, t);
 
-  // Compute flow f on new graph
+  // 4. If (f < sum d_v) no else yes
+  if (f < total_num_defenders) {
+    std::cout << "no" << std::endl;
+  } else {
+    std::cout << "yes" << std::endl;
+  }
 
-  // If f < sum of all lowerbounds output no
-  // else output yes
-  
 }
 
 int main() {
