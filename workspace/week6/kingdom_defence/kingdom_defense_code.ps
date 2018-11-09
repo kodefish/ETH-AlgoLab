@@ -1,0 +1,594 @@
+%!PS-Adobe-3.0
+%%Title: kingdom_defence.cpp
+%%For: kodefish
+%%Creator: VIM - Vi IMproved 8.0 (2016 Sep 12)
+%%CreationDate: Thu Nov  8 10:19:29 2018
+%%DocumentData: Clean8Bit
+%%Orientation: Portrait
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%BoundingBox: 59 49 564 800
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%DocumentSuppliedResources: procset VIM-Prolog 1.4 1
+%%+ encoding VIM-latin1 1.0 0
+%%Requirements: duplex collate color
+%%EndComments
+%%BeginDefaults
+%%PageResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%PageMedia: A4
+%%EndDefaults
+%%BeginProlog
+%%BeginResource: procset VIM-Prolog
+%%BeginDocument: /usr/share/vim/vim80/print/prolog.ps
+%!PS-Adobe-3.0 Resource-ProcSet
+%%Title: VIM-Prolog
+%%Version: 1.4 1
+%%EndComments
+% Editing of this file is NOT RECOMMENDED.  You run a very good risk of causing
+% all PostScript printing from VIM failing if you do.  PostScript is not called
+% a write-only language for nothing!
+/packedarray where not{userdict begin/setpacking/pop load def/currentpacking
+false def end}{pop}ifelse/CP currentpacking def true setpacking
+/bd{bind def}bind def/ld{load def}bd/ed{exch def}bd/d/def ld
+/db{dict begin}bd/cde{currentdict end}bd
+/T true d/F false d
+/SO null d/sv{/SO save d}bd/re{SO restore}bd
+/L2 systemdict/languagelevel 2 copy known{get exec}{pop pop 1}ifelse 2 ge d
+/m/moveto ld/s/show ld /ms{m s}bd /g/setgray ld/r/setrgbcolor ld/sp{showpage}bd
+/gs/gsave ld/gr/grestore ld/cp/currentpoint ld
+/ul{gs UW setlinewidth cp UO add 2 copy newpath m 3 1 roll add exch lineto
+stroke gr}bd
+/bg{gs r cp BO add 4 -2 roll rectfill gr}bd
+/sl{90 rotate 0 exch translate}bd
+L2{
+/sspd{mark exch{setpagedevice}stopped cleartomark}bd
+/nc{1 db/NumCopies ed cde sspd}bd
+/sps{3 db/Orientation ed[3 1 roll]/PageSize ed/ImagingBBox null d cde sspd}bd
+/dt{2 db/Tumble ed/Duplex ed cde sspd}bd
+/c{1 db/Collate ed cde sspd}bd
+}{
+/nc{/#copies ed}bd
+/sps{statusdict/setpage get exec}bd
+/dt{statusdict/settumble 2 copy known{get exec}{pop pop pop}ifelse
+statusdict/setduplexmode 2 copy known{get exec}{pop pop pop}ifelse}bd
+/c{pop}bd
+}ifelse
+/ffs{findfont exch scalefont d}bd/sf{setfont}bd
+/ref{1 db findfont dup maxlength dict/NFD ed{exch dup/FID ne{exch NFD 3 1 roll
+put}{pop pop}ifelse}forall/Encoding findresource dup length 256 eq{NFD/Encoding
+3 -1 roll put}{pop}ifelse NFD dup/FontType get 3 ne{/CharStrings}{/CharProcs}
+ifelse 2 copy known{2 copy get dup maxlength dict copy[/questiondown/space]{2
+copy known{2 copy get 2 index/.notdef 3 -1 roll put pop exit}if pop}forall put
+}{pop pop}ifelse dup NFD/FontName 3 -1 roll put NFD definefont pop end}bd
+CP setpacking
+(\004)cvn{}bd
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%BeginResource: encoding VIM-latin1
+%%BeginDocument: /usr/share/vim/vim80/print/latin1.ps
+%!PS-Adobe-3.0 Resource-Encoding
+%%Title: VIM-latin1
+%%Version: 1.0 0
+%%EndComments
+/VIM-latin1[
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/grave /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]
+/Encoding defineresource pop
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%EndProlog
+%%BeginSetup
+595 842 0 sps
+1 nc
+T F dt
+T c
+%%IncludeResource: font Courier
+/_F0 /VIM-latin1 /Courier ref
+/F0 10 /_F0 ffs
+%%IncludeResource: font Courier-Bold
+/_F1 /VIM-latin1 /Courier-Bold ref
+/F1 10 /_F1 ffs
+%%IncludeResource: font Courier-Oblique
+/_F2 /VIM-latin1 /Courier-Oblique ref
+/F2 10 /_F2 ffs
+%%IncludeResource: font Courier-BoldOblique
+/_F3 /VIM-latin1 /Courier-BoldOblique ref
+/F3 10 /_F3 ffs
+/UO -1 d
+/UW 0.5 d
+/BO -2.5 d
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(kingdom_defence.cpp                                                           Page 1)59.5 792.4 ms
+F0 sf
+0 0 0.376 r
+(#include )59.5 772.4 ms
+0.498 0.125 0.498 r
+(<iostream>)s
+0 0 0.376 r
+(#include )59.5 762.4 ms
+0.498 0.125 0.498 r
+(<map>)s
+0 0 0.376 r
+(#include )59.5 752.4 ms
+0.498 0.125 0.498 r
+(<climits>)s
+0 0 0.376 r
+(#include )59.5 742.4 ms
+0.498 0.125 0.498 r
+(<boost/graph/adjacency_list.hpp>)s
+0 0 0.376 r
+(#include )59.5 732.4 ms
+0.498 0.125 0.498 r
+(<boost/graph/push_relabel_max_flow.hpp>)s
+0.188 0.188 0.498 r
+(typedef)59.5 702.4 ms
+0 g
+( boost::adjacency_list_traits<boost::vecS, boost::vecS, boost::bidirectionalS)s
+(> Traits;)59.5 692.4 ms
+0.188 0.188 0.498 r
+(typedef)59.5 672.4 ms
+0 g
+( boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS,)s
+(                  boost::no_property,)59.5 662.4 ms
+(                  boost::property<boost::edge_capacity_t, )59.5 652.4 ms
+0.188 0.188 0.498 r
+(long)s
+0 g
+(,)s
+(                          boost::property<boost::edge_residual_capacity_t, )59.5 642.4 ms
+0.188 0.188 0.498 r
+(long)s
+0 g
+(,)s
+(                                  boost::property<boost::edge_reverse_t, Traits::edg)59.5 632.4 ms
+(e_descriptor>>>> Graph;)59.5 622.4 ms
+0.188 0.188 0.498 r
+(typedef)59.5 612.4 ms
+0 g
+( Graph::vertex_descriptor Vertex;)s
+0.188 0.188 0.498 r
+(typedef)59.5 602.4 ms
+0 g
+( Graph::edge_descriptor Edge;)s
+0.188 0.188 0.498 r
+(typedef)59.5 592.4 ms
+0 g
+( boost::property_map<Graph, boost::edge_capacity_t>::type EdgeCapacityMap;)s
+0.188 0.188 0.498 r
+(typedef)59.5 582.4 ms
+0 g
+( boost::property_map<Graph, boost::edge_residual_capacity_t>::type ResidualCa)s
+(pacityMap;)59.5 572.4 ms
+0.188 0.188 0.498 r
+(typedef)59.5 562.4 ms
+0 g
+( boost::property_map<Graph, boost::edge_reverse_t>::type EdgeReverseMap;)s
+0.188 0.188 0.498 r
+(class)59.5 542.4 ms
+0 g
+( EdgeAdder {)s
+(  Graph &g;)59.5 532.4 ms
+(  EdgeCapacityMap &capacity_map;)59.5 522.4 ms
+(  EdgeReverseMap &reverse_map;)59.5 512.4 ms
+0 0.498 0.498 r
+(public)59.5 492.4 ms
+0 g
+(:)s
+(  EdgeAdder\(Graph &g,)59.5 482.4 ms
+(        EdgeCapacityMap &capacity_map,)59.5 472.4 ms
+(        EdgeReverseMap &reverse_map\))59.5 462.4 ms
+(    :g\(g\), capacity_map\(capacity_map\), reverse_map\(reverse_map\) {})59.5 452.4 ms
+(  )59.5 432.4 ms
+0.188 0.188 0.498 r
+(void)s
+0 g
+( add_edge\()s
+0.188 0.188 0.498 r
+(int)s
+0 g
+( u, )s
+0.188 0.188 0.498 r
+(int)s
+0 g
+( v, )s
+0.188 0.188 0.498 r
+(int)s
+0 g
+( cap\) {)s
+(    Edge e, rev_e; )59.5 422.4 ms
+0.188 0.188 0.498 r
+(bool)s
+0 g
+( s;)s
+(    boost::tie\(e, s\) = boost::add_edge\(u, v, g\);)59.5 412.4 ms
+(    boost::tie\(rev_e, s\) = boost::add_edge\(v, u, g\);)59.5 402.4 ms
+(    )59.5 382.4 ms
+0.498 0.498 0 r
+(// Add capcities)s
+0 g
+(    capacity_map[e] = cap;)59.5 372.4 ms
+(    capacity_map[rev_e] = )59.5 362.4 ms
+0.498 0.125 0.498 r
+(0)s
+0 g
+(;)s
+(    )59.5 342.4 ms
+0.498 0.498 0 r
+(// Add reverse edge)s
+0 g
+(    reverse_map[e] = rev_e;)59.5 332.4 ms
+(    reverse_map[rev_e] = e;)59.5 322.4 ms
+(  })59.5 312.4 ms
+(};)59.5 302.4 ms
+0.188 0.188 0.498 r
+(void)59.5 282.4 ms
+0 g
+( testcase\(\) {)s
+(  )59.5 272.4 ms
+0.498 0.498 0 r
+(// 0. Read in values)s
+0 g
+(  )59.5 262.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( l, p; std::cin >> l >> p;)s
+(  )59.5 242.4 ms
+0.498 0.498 0 r
+(// Read in locations + num garrisoned and num needed to defend)s
+0 g
+(  std::vector<)59.5 232.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+(> num_garrisoned\(l\), num_defenders\(l\);)s
+(  )59.5 222.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( total_num_defenders = )s
+0.498 0.125 0.498 r
+(0)s
+0 g
+(;)s
+(  )59.5 212.4 ms
+0 0.498 0.498 r
+(for)s
+0 g
+(\()s
+0.188 0.188 0.498 r
+(int)s
+0 g
+( i = )s
+0.498 0.125 0.498 r
+(0)s
+0 g
+(; i < l; i++\) {)s
+(    )59.5 202.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( g_i, d_i; std::cin >> g_i >> d_i;)s
+(    num_garrisoned[i] = g_i;)59.5 192.4 ms
+(    num_defenders[i] = d_i;)59.5 182.4 ms
+(    total_num_defenders += d_i;)59.5 172.4 ms
+(  })59.5 162.4 ms
+(  )59.5 142.4 ms
+0.498 0.498 0 r
+(// Track input graph, but keep weights seperate)s
+0 g
+(  )59.5 132.4 ms
+0.498 0.498 0 r
+(// Done so that it's easier to read incoming and outgoing edges for vertices)s
+0 g
+(  Graph input_g\(l\);)59.5 122.4 ms
+(  std::map<Edge, )59.5 112.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+(> min_cap, max_cap;)s
+(  )59.5 92.4 ms
+0.498 0.498 0 r
+(// Read in paths)s
+0 g
+(  )59.5 82.4 ms
+0 0.498 0.498 r
+(for)s
+0 g
+(\()s
+0.188 0.188 0.498 r
+(int)s
+0 g
+( i = )s
+0.498 0.125 0.498 r
+(0)s
+0 g
+(; i < p; i++\) {)s
+(    )59.5 72.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( f_i, t_i, min_i, max_i; std::cin >> f_i >> t_i >> min_i >> max_i;)s
+(    )59.5 52.4 ms
+0.498 0.498 0 r
+(// Add edge to input graph)s
+re sp
+%%PageTrailer
+%%Page: 2 2
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(kingdom_defence.cpp                                                           Page 2)59.5 792.4 ms
+F0 sf
+(    Edge e; )59.5 772.4 ms
+0.188 0.188 0.498 r
+(bool)s
+0 g
+( s;)s
+(    boost::tie\(e, s\) = boost::add_edge\(f_i, t_i, input_g\);)59.5 762.4 ms
+(    )59.5 742.4 ms
+0.498 0.498 0 r
+(// Record min and max capacities)s
+0 g
+(    min_cap[e] = min_i;)59.5 732.4 ms
+(    max_cap[e] = max_i;)59.5 722.4 ms
+(  })59.5 712.4 ms
+(  )59.5 692.4 ms
+0.498 0.498 0 r
+(// Create graph with sink and target)s
+0 g
+(  Graph g\(l + )59.5 682.4 ms
+0.498 0.125 0.498 r
+(2)s
+0 g
+(\);)s
+(  )59.5 672.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( s = l;)s
+(  )59.5 662.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( t = s + )s
+0.498 0.125 0.498 r
+(1)s
+0 g
+(;)s
+(  EdgeCapacityMap capacity_map = boost::get\(boost::edge_capacity, g\);)59.5 652.4 ms
+(  EdgeReverseMap reverse_map = boost::get\(boost::edge_reverse, g\);)59.5 642.4 ms
+(  )59.5 622.4 ms
+0.498 0.498 0 r
+(// Create edge adder helper)s
+0 g
+(  EdgeAdder ea\(g, capacity_map, reverse_map\);)59.5 612.4 ms
+(  )59.5 592.4 ms
+0.498 0.498 0 r
+(// 1. For every vertex v)s
+0 g
+(  )59.5 582.4 ms
+0.498 0.498 0 r
+(// Compute s -> v, with c\(s -> v\) = g_v + sum\(min\(in\(v\)\) - sum\(min\(v\)\))s
+0 g
+(  )59.5 572.4 ms
+0.498 0.498 0 r
+(// Compute v -> t, with c\(v -> t\) = d_v)s
+0 g
+(  )59.5 562.4 ms
+0 0.498 0.498 r
+(for)s
+0 g
+(\(Vertex v = )s
+0.498 0.125 0.498 r
+(0)s
+0 g
+(; v < l; v++\) {)s
+(    )59.5 552.4 ms
+0.498 0.498 0 r
+(// 1.a Compute sum\(min\(in\(v\)\)\))s
+0 g
+(    )59.5 542.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( sum_min_in = )s
+0.498 0.125 0.498 r
+(0)s
+0 g
+(;)s
+(    Graph::in_edge_iterator in_itr, in_end;)59.5 532.4 ms
+(    )59.5 522.4 ms
+0 0.498 0.498 r
+(for)s
+0 g
+(\(boost::tie\(in_itr, in_end\) = boost::in_edges\(v, input_g\); in_itr != in_end; )s
+(in_itr++\) {)59.5 512.4 ms
+(      sum_min_in += min_cap[*in_itr];)59.5 502.4 ms
+(    })59.5 492.4 ms
+(    )59.5 472.4 ms
+0.498 0.498 0 r
+(// 1.b Compute sum\(min\(out\(v\)\)\))s
+0 g
+(    )59.5 462.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( sum_min_out = )s
+0.498 0.125 0.498 r
+(0)s
+0 g
+(;)s
+(    Graph::out_edge_iterator out_itr, out_end;)59.5 452.4 ms
+(    )59.5 442.4 ms
+0 0.498 0.498 r
+(for)s
+0 g
+(\(boost::tie\(out_itr, out_end\) = boost::out_edges\(v, input_g\); out_itr != out_)s
+(end; out_itr++\) {)59.5 432.4 ms
+(      sum_min_out += min_cap[*out_itr];)59.5 422.4 ms
+(    })59.5 412.4 ms
+(    )59.5 392.4 ms
+0.498 0.498 0 r
+(// 1.c add edge s -> v with capacity g_i + sum_min_in - sum_min_out)s
+0 g
+(    )59.5 382.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( s_v_cap =  num_garrisoned[v] + sum_min_in - sum_min_out;)s
+(    )59.5 372.4 ms
+0 0.498 0.498 r
+(if)s
+0 g
+( \(s_v_cap > )s
+0.498 0.125 0.498 r
+(0)s
+0 g
+(\))s
+(      ea.add_edge\(s, v, s_v_cap\);)59.5 362.4 ms
+(    )59.5 342.4 ms
+0.498 0.498 0 r
+(// 1.d add edge v -> with capacity d_i)s
+0 g
+(    ea.add_edge\(v, t, num_defenders[v]\);)59.5 332.4 ms
+(  })59.5 322.4 ms
+(  )59.5 302.4 ms
+0.498 0.498 0 r
+(// 2. For every edge u -> v \(excluding s and t\))s
+0 g
+(  )59.5 292.4 ms
+0.498 0.498 0 r
+(// Compute u -> v, with c\(u -> v\) = max\(u -> v\) - min\(u -> v\))s
+0 g
+(  Graph::edge_iterator e_itr, e_end;)59.5 282.4 ms
+(  )59.5 272.4 ms
+0 0.498 0.498 r
+(for)s
+0 g
+(\(boost::tie\(e_itr, e_end\) = boost::edges\(input_g\); e_itr != e_end; e_itr++\) {)s
+(    ea.add_edge\(boost::source\(*e_itr, input_g\),)59.5 262.4 ms
+(         boost::target\(*e_itr, input_g\),)59.5 252.4 ms
+(         max_cap[*e_itr] - min_cap[*e_itr]\);)59.5 242.4 ms
+(  })59.5 232.4 ms
+(  )59.5 212.4 ms
+0.498 0.498 0 r
+(// 3. Compute \(s, t\)-flow f)s
+0 g
+(  )59.5 202.4 ms
+0.188 0.188 0.498 r
+(long)s
+0 g
+( f = boost::push_relabel_max_flow\(g, s, t\);)s
+(  )59.5 182.4 ms
+0.498 0.498 0 r
+(// 4. If \(f < sum d_v\) no else yes)s
+0 g
+(  )59.5 172.4 ms
+0 0.498 0.498 r
+(if)s
+0 g
+( \(f < total_num_defenders\) {)s
+(    std::cout << )59.5 162.4 ms
+0.498 0.125 0.498 r
+("no")s
+0 g
+( << std::endl;)s
+(  } )59.5 152.4 ms
+0 0.498 0.498 r
+(else)s
+0 g
+( {)s
+(    std::cout << )59.5 142.4 ms
+0.498 0.125 0.498 r
+("yes")s
+0 g
+( << std::endl;)s
+(  })59.5 132.4 ms
+(})59.5 122.4 ms
+0.188 0.188 0.498 r
+(int)59.5 102.4 ms
+0 g
+( main\(\) {)s
+(  std::ios_base::sync_with_stdio\()59.5 92.4 ms
+0.498 0.125 0.498 r
+(false)s
+0 g
+(\);)s
+(  )59.5 82.4 ms
+0.188 0.188 0.498 r
+(int)s
+0 g
+( t; std::cin >> t;)s
+(  )59.5 72.4 ms
+0 0.498 0.498 r
+(while)s
+0 g
+(\(t--\) testcase\(\);)s
+(  )59.5 62.4 ms
+0 0.498 0.498 r
+(return)s
+0 g
+( )s
+0.498 0.125 0.498 r
+(0)s
+0 g
+(;)s
+(})59.5 52.4 ms
+re sp
+%%PageTrailer
+%%Trailer
+%%Pages: 2
+%%EOF
+

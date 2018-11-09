@@ -28,14 +28,14 @@ public:
 	    EdgeReverseMap &reverse_map)
     :g(g), capacity_map(capacity_map), reverse_map(reverse_map) {}
 
-  void add_edge(int u, int v) {
+  void add_edge(int u, int v, int cap) {
     Edge e, rev_e; bool s;
     boost::tie(e, s) = boost::add_edge(u, v, g);
     boost::tie(rev_e, s) = boost::add_edge(v, u, g);
 
     // If new edge
     // Add capcities
-    capacity_map[e] = 1;
+    capacity_map[e] = cap;
     capacity_map[rev_e] = 0;
 
     // Add reverse edge
@@ -60,7 +60,7 @@ void testcase() {
 
   // Limit cap of each vertice to 1
   for(int i = 1; i < w; i++) {
-    ea.add_edge(i, i + (w - 1));
+    ea.add_edge(i, i + (w - 1), 1);
   }
 
   std::map<std::pair<int, int>, int> cracks;
@@ -75,9 +75,13 @@ void testcase() {
     if (max == w) {
       max = (2 * w) - 1;
     }
-    if (cracks[std::make_pair(min, max)]++ == 0) {
-      ea.add_edge(min, max);
-    }
+    cracks[std::make_pair(min, max)]++;
+  }
+
+  for(std::map<std::pair<int, int>, int>::iterator it = cracks.begin(); it != cracks.end(); it++) {
+    std::pair<int, int> edge = it->first;
+    int cap =  it->second;
+    ea.add_edge(edge.first, edge.second, cap);
   }
 
   // Call flow algo
