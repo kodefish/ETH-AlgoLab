@@ -1,0 +1,70 @@
+* Algorithms Lab 2018
+This repo contains my solutions to the algorithms lab of ETH Zürich. The lab consists of problems every week that must be solved via an algorithm. 
+
+The primary language to solve the challenges is C++. I strive as much as possible to document my code and my algorithms. The description of the problems may be wonky, so I suggest that you give the associated PDF a read for a detailed explanation of the problem.
+
+** Overview
+|   Week | Problem               | Score | Solution                                |
+|--------+-----------------------+-------+-----------------------------------------|
+|      1 | Build The Sum         |     0 | -                                       |
+|      1 | Dominoes              |     0 | -                                       |
+|      1 | Even Pairs            |     0 | -                                       |
+|      1 | Even Matrices         |     0 | -                                       |
+| PotW 1 | Deck of Cards         |     0 | -                                       |
+|      2 | Burning Coins         |   100 | Dynamic Programming                     |
+|      2 | Beach Bars            |   100 | Sliding Windowm & DP                    |
+|      2 | The Great Game        |   100 | Bottom Up Dynamic Programming           |
+|      2 | Search Snippets       |    75 | Sliding Windowm                         |
+| PotW 2 | Magician and the Coin |     0 | -                                       |
+|      3 | Hit                   |   100 | CGAL intersection testing               |
+|      3 | First Hit             |    99 | CGAL intersection testing               |
+|      3 | Antenna               |   100 | CGAL Min Circle                         |
+|      3 | Almost Antenna        |   100 | CGAL Min Circle and Support Points      |
+| PotW 3 | Defensive Line        |   100 | Dynamic Programming                     |
+|      4 | First Steps with BGL  |   100 | MST and Dijkstra Shortest Paths         |
+|      4 | Ant Challenge         |   100 | MST and Dijkstra Shortest Paths         |
+|      4 | Important Bridges     |   100 | Biconnected Components                  |
+|      4 | Buddy Selection       |   100 | Set Intersection & Group Matching       |
+|      4 | Shortest Paths        |     0 | -                                       |
+| PotW 4 | Hiking Maps           |    75 | CGAL Predicate Testing & Sliding Window |
+|      5 | Boats                 |   100 | Greedy Algorithm                        |
+|      5 | Attack of the Clones  |     0 | -                                       |
+|      5 | Light at the Museum   |     0 | -                                       |
+|      5 | Punch                 |     0 | -                                       |
+|      5 | High School Teams     |     0 | -                                       |
+| PotW 5 | Planet Express        |   100 | Shortest Paths & Vertex Aggregation     |
+|      6 | Coin Tossing          |   100 | Flow Computation                        |
+|      6 | Shopping Trip         |   100 | Flow Computation                        |
+|      6 | Kingdom Defence       |   100 | Flow Computation with min/max per edge  |
+|      6 | Tetris                |   100 | Flow Computation & Vertex splitting     |
+| Potw 6 | Octopussy             |   100 | Greedy Algorithm                        |
+|      7 | Maximum               |   100 | CGAL LP/QP                              |
+|      7 | Diet                  |   100 | QP                                      |
+|      7 | Portfolios            |   100 | QP                                      |
+|      7 | Inball                |     0 | -                                       |
+| PotW 7 | London                |   100 | Flow Computation & Vertex Aggregation   |
+|      8 | Graypes               |       |                                         |
+|      8 | Bistro                |       |                                         |
+|      8 | H1N1                  |       |                                         |
+|      8 | Germs                 |       |                                         |
+
+** Compilation and Running
+To compile the cpp files:
+#+BEGIN_SRC bash
+g++ -Wall -O3 filename.cpp -o filename.o
+#+END_SRC
+
+To run the file with a given input and redirect output to a file
+#+BEGIN_SRC bash
+./filename.o < testsets/test{i}.in > test{i}.out
+#+END_SRC
+
+To compare with the expected output, use `diff`
+#+BEGIN_SRC bash
+diff test{i}.out testsets/test{i}.out
+#+END_SRC
+
+Alternatively, you can do the previous in one line
+#+BEGIN_SRC bash
+diff <(./filename.o < testsets/test{i}.in) testsets/test{i}.out
+#+END_SRC
