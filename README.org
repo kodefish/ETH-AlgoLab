@@ -49,6 +49,7 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |      8 | Germs                 |       |                                         |
 
 ** Compilation and Running
+*** STL/BGL Files
 To compile the cpp files:
 #+BEGIN_SRC bash
 g++ -Wall -O3 filename.cpp -o filename.o
@@ -68,3 +69,16 @@ Alternatively, you can do the previous in one line
 #+BEGIN_SRC bash
 diff <(./filename.o < testsets/test{i}.in) testsets/test{i}.out
 #+END_SRC
+
+*** CGAL
+Compiling CGAL files is slightly different, it makes use of the ~cgal_create_cmake_script~.
+In order to avoid to seperate the source code from compiled files, take advantage of an additional build folder.
+Compile as follows:
+#+BEGIN_SRC bash
+cgal_create_cmake_script
+mkdir build && cd build
+cmake ..
+make
+#+END_SRC
+
+To run, the procedure is the same as for STL/BGL files.
