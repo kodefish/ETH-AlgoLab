@@ -6,9 +6,9 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 ** Overview
 |   Week | Problem               | Score | Solution                                |
 |--------+-----------------------+-------+-----------------------------------------|
+|      1 | Even Pairs            |   100 | Partial Sums                            |
 |      1 | Build The Sum         |     0 | -                                       |
 |      1 | Dominoes              |     0 | -                                       |
-|      1 | Even Pairs            |     0 | -                                       |
 |      1 | Even Matrices         |     0 | -                                       |
 | PotW 1 | Deck of Cards         |     0 | -                                       |
 |      2 | Burning Coins         |   100 | Dynamic Programming                     |
@@ -43,8 +43,8 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |      7 | Portfolios            |   100 | QP                                      |
 |      7 | Inball                |     0 | -                                       |
 | PotW 7 | London                |   100 | Flow Computation & Vertex Aggregation   |
-|      8 | Graypes               |       |                                         |
-|      8 | Bistro                |       |                                         |
+|      8 | Graypes               |   100 | Triangulation                           |
+|      8 | Bistro                |   100 | Triangulagion                           |
 |      8 | H1N1                  |       |                                         |
 |      8 | Germs                 |       |                                         |
 
