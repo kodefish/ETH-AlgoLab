@@ -7,7 +7,7 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |   Week | Problem               | Score | Solution                                |
 |--------+-----------------------+-------+-----------------------------------------|
 |      1 | Even Pairs            |   100 | Partial Sums                            |
-|      1 | Build The Sum         |     0 | -                                       |
+|      1 | Build The Sum         |   100 | Common Sense                            |
 |      1 | Dominoes              |     0 | -                                       |
 |      1 | Even Matrices         |     0 | -                                       |
 | PotW 1 | Deck of Cards         |     0 | -                                       |
