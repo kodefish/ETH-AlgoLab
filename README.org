@@ -10,12 +10,12 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |      1 | Build The Sum         |   100 | Common Sense                            |
 |      1 | Dominoes              |   100 | Sliding over the dominoes               |
 |      1 | Even Matrices         |    70 | Precomputation                          |
-| PotW 1 | Deck of Cards         |     0 | -                                       |
+| PotW 1 | Deck of Cards         |   100 | Precomputation + sliding window         |
 |      2 | Burning Coins         |   100 | Dynamic Programming                     |
 |      2 | Beach Bars            |   100 | Sliding Windowm & DP                    |
 |      2 | The Great Game        |   100 | Bottom Up Dynamic Programming           |
 |      2 | Search Snippets       |    75 | Sliding Windowm                         |
-| PotW 2 | Magician and the Coin |     0 | -                                       |
+| PotW 2 | Magician and the Coin |   100 | Dynamic Programming & Memoization       |
 |      3 | Hit                   |   100 | CGAL intersection testing               |
 |      3 | First Hit             |    99 | CGAL intersection testing               |
 |      3 | Antenna               |   100 | CGAL Min Circle                         |
