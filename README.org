@@ -25,8 +25,8 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |      4 | Ant Challenge         |   100 | MST and Dijkstra Shortest Paths         |
 |      4 | Important Bridges     |   100 | Biconnected Components                  |
 |      4 | Buddy Selection       |   100 | Set Intersection & Group Matching       |
-|      4 | Shortest Paths        |     0 | -                                       |
-| PotW 4 | Hiking Maps           |    75 | CGAL Predicate Testing & Sliding Window |
+|      4 | Shortest Paths        |   100 | Dijkstra                                |
+| PotW 4 | Hiking Maps           |   100 | CGAL Predicate Testing & Sliding Window |
 |      5 | Boats                 |   100 | Greedy Algorithm                        |
 |      5 | Attack of the Clones  |     0 | -                                       |
 |      5 | Light at the Museum   |     0 | -                                       |
