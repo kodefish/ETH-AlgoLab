@@ -28,8 +28,8 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |      4 | Shortest Paths        |   100 | Dijkstra                                |
 | PotW 4 | Hiking Maps           |   100 | CGAL Predicate Testing & Sliding Window |
 |      5 | Boats                 |   100 | Greedy Algorithm                        |
-|      5 | Attack of the Clones  |     0 | Greedy                                 |
-|      5 | Light at the Museum   |     0 | -                                       |
+|      5 | Attack of the Clones  |     0 | Greedy                                  |
+|      5 | Light at the Museum   |   100 | Split & List                            |
 |      5 | Punch                 |     0 | -                                       |
 |      5 | High School Teams     |     0 | -                                       |
 | PotW 5 | Planet Express        |   100 | Shortest Paths & Vertex Aggregation     |
