@@ -1,4 +1,4 @@
-// Special thanks goes to tonykarkats from github for kindly making his repo publicly available
+// Special thanks goes to matalek from github for kindly making his repo publicly available
 #include <iostream>
 #include <vector>
 #include <map>
