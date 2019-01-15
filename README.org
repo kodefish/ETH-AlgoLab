@@ -41,7 +41,7 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |      7 | Maximum               |   100 | CGAL LP/QP                              |
 |      7 | Diet                  |   100 | QP                                      |
 |      7 | Portfolios            |   100 | QP                                      |
-|      7 | Inball                |     0 | -                                       |
+|      7 | Inball                |   100 | CGAL LP - have to set up right LP       |
 | PotW 7 | London                |   100 | Flow Computation & Vertex Aggregation   |
 |      8 | Graypes               |   100 | Triangulation                           |
 |      8 | Bistro                |   100 | Triangulagion                           |
