@@ -51,7 +51,7 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |       8 | Satellites                      |   100 | Min Vertex Cover                        |
 |       8 | Algocoon                        |   100 | MinFlow-MaxCut                          |
 |       8 | Real Estate Market              |    80 | MaxCost-MaxFlow (using MinCostMaxFlow)  |
-|       8 | Canteen                         |       |                                         |
+|       8 | Canteen                         |   100 | MaxCost-MaxFlow                         |
 |       8 | Marathon                        |       |                                         |
 |  PotW 9 | GoldenEye                       |   100 | CGAL Proximity Structure (Vornoi)       |
 |       9 | New Tiles                       |       |                                         |
