@@ -48,8 +48,8 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |       8 | H1N1                            |    80 | Delaunay Triangulation + DFS            |
 |       8 | Germs                           |   100 | Delaunay triangulation                  |
 |  PotW 8 | Suez                            |   100 | LP                                      |
-|       8 | Satellites                      |   100 | Min Vertex Cover                  |
-|       8 | Algocoon                        |       |                                         |
+|       8 | Satellites                      |   100 | Min Vertex Cover                        |
+|       8 | Algocoon                        |   100 | Min Flow Max Cut                        |
 |       8 | Real Estate Market              |       |                                         |
 |       8 | Canteen                         |       |                                         |
 |       8 | Marathon                        |       |                                         |
