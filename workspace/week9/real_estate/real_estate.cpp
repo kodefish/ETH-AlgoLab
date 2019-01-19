@@ -91,21 +91,26 @@ void testcase() {
     }
 
     // Read in buyer bids
+    const int MAX_BID = 100;
     for (int i = 0; i < N; i++) {
         eaG.addEdge(v_source, i, 1, 0);
         for (int j = 0; j < M; j++) {
             int bid; std::cin >> bid;
-            eaG.addEdge(i, sites + j, 1, -bid);
+            eaG.addEdge(i, sites + j, 1, 100 - bid);
         }
     }
 
     // Run the algorithm
-
-    // Option 1: Min Cost Max Flow with cycle_canceling
-    int flow = boost::push_relabel_max_flow(G, v_source, v_target);
-    boost::cycle_canceling(G);
+    boost::successive_shortest_path_nonnegative_weights(G, v_source, v_target);
     int cost = boost::find_flow_cost(G);
-    std::cout << flow << " " << -cost << std::endl;
+    int flow = 0;
+    // Iterate over all edges leaving the source to sum up the flow values.
+    OutEdgeIt e, eend;
+    for(boost::tie(e, eend) = boost::out_edges(boost::vertex(v_source,G), G); e != eend; ++e) {
+        flow += capacitymap[*e] - rescapacitymap[*e];
+    }
+
+    std::cout << flow << " " << -(cost - MAX_BID * flow) << std::endl;
 }
 
 int main() {
