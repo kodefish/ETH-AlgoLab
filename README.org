@@ -56,7 +56,7 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |  PotW 9 | GoldenEye                       |   100 | CGAL Proximity Structure (Vornoi)                   |
 |       9 | New Tiles                       |     0 | DP with bitmatching (not implemented)               |
 |       9 | On Her Majesty's Secret Service |   100 | Minimum bottleneck matching (minimizing edge weight |
-|       9 | Light the Stage                 |       |                                                     |
+|       9 | Light the Stage                 |   100 | CGAL Proximity Checking                             |
 |       9 | Evolution                       |       |                                                     |
 |       9 | Return of the Jedi              |       |                                                     |
 |       9 | Poker Chips                     |       |                                                     |
