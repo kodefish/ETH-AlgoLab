@@ -5,6 +5,7 @@
 #include <boost/dynamic_bitset.hpp>
 
 int max_points_rec(std::vector<std::vector<int>> chips, std::vector<int> idx) {
+    std::cout << "entering rec" << std::endl;
     std::map<int, std::vector<int>> same_col_loc;
     for (int i = 0; i < chips.size(); i++) {
         if (idx[i] < 0) continue;
@@ -21,15 +22,16 @@ int max_points_rec(std::vector<std::vector<int>> chips, std::vector<int> idx) {
             boost::dynamic_bitset<> bit_mask(possible_locations.size(), mask);
             std::vector<int> new_idx;
             new_idx = idx;
+            std::cout << "removing color: " << col << ", from stacks: ";
             for (int stack = 0; stack < possible_locations.size(); stack++) {
-                int stack_idx = possible_locations[stack];
                 if (bit_mask[stack]) {
+                    int stack_idx = possible_locations[stack];
                     // Take chip off stack i 
                     new_idx[stack_idx] = idx[stack_idx] - 1;
-                } else {
-                    new_idx[stack_idx] = idx[stack_idx];
-                }
+                    std::cout << stack_idx << " ";
+                }            
             }
+            std::cout << std::endl;
 
             int k = bit_mask.count();
             int points = k > 1 ? std::pow(2, k - 2):0;
