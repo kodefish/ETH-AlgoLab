@@ -58,10 +58,10 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |       9 | On Her Majesty's Secret Service |   100 | Minimum bottleneck matching (minimizing edge weight |
 |       9 | Light the Stage                 |   100 | CGAL Proximity Checking                             |
 |       9 | Evolution                       |    30 | Naive path walk                                     |
-|       9 | Return of the Jedi              |       |                                                     |
-|       9 | Poker Chips                     |       |                                                     |
+|       9 | Return of the Jedi              |     0 | -                                                   |
+|       9 | Poker Chips                     |     0 | DP with bitmatching                                 |
 | PotW 10 | India                           |       |                                                     |
-|      10 | The Empire Strikes Back         |       |                                                     |
+|      10 | The Empire Strikes Back         |   100 | LP + Delaunay triangulation precomputation          |
 |      10 | Planks                          |       |                                                     |
 |      10 | Carsharing                      |       |                                                     |
 |      10 | San Fransisco                   |       |                                                     |
