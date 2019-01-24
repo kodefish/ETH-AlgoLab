@@ -67,7 +67,7 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |      10 | San Fransisco                   |       |                                                        |
 | PotW 11 | New York                        |       |                                                        |
 |      11 | Light Pattern                   |       |                                                        |
-|      11 | Casino Royale                   |       |                                                        |
+|      11 | Casino Royale                   |   100 | MinCostMaxFlow (same idea as carsharing)          |
 |      11 | Radiation                       |       |                                                        |
 |      11 | Hong Kong                       |       |                                                        |
 | PotW 12 | World Cup                       |       |                                                        |
