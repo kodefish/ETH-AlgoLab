@@ -63,7 +63,7 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 | PotW 10 | India                           |       |                                                        |
 |      10 | The Empire Strikes Back         |   100 | LP + Delaunay triangulation precomputation             |
 |      10 | Planks                          |    60 | Basically bruteforcing (Correct is to use Split & List |
-|      10 | Carsharing                      |     0 | MinCostMaxFlow                                         |
+|      10 | Carsharing                      |   100 | MinCostMaxFlow                                         |
 |      10 | San Fransisco                   |       |                                                        |
 | PotW 11 | New York                        |       |                                                        |
 |      11 | Light Pattern                   |       |                                                        |
@@ -75,7 +75,7 @@ The primary language to solve the challenges is C++. I strive as much as possibl
 |      12 | Corbusier                       |       |                                                        |
 |      12 | Cantonal Courier                |       |                                                        |
 |      12 | Clues                           |    60 | 2-color BFS + Delaunay                                 |
-|      12 | Moving Blocks                   |   100 | Greedy + multiset                                  |
+|      12 | Moving Blocks                   |   100 | Greedy + multiset                                      |
 | PotW 13 | Fleetrace                       |       |                                                        |
 
 ** Compilation and Running
