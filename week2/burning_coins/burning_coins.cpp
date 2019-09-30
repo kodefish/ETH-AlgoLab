@@ -21,7 +21,7 @@ int f(int i, int j, int t, vec const& coins, vec3 &memo){
     }
 
     // Check memo
-    if (memo[i][j][t % 2] != MEMO_INIT) return memo[i][j][t % 2];
+    if (memo[t % 2][i][j] != MEMO_INIT) return memo[t % 2][i][j];
 
     // Reccurence
     int result = -1;
@@ -30,14 +30,14 @@ int f(int i, int j, int t, vec const& coins, vec3 &memo){
     } else {
         result = std::min(f(i + 1, j, t + 1, coins, memo), f(i, j - 1, t + 1, coins, memo));
     }
-    memo[i][j][t % 2] = result;
+    memo[t % 2][i][j] = result;
     return result;
 }
 
 void testcase() {
     int n; std::cin >> n;
     vec coins(n);
-    vec3 memo(n, vec2(n, vec(2, MEMO_INIT)));
+    vec3 memo(2, vec2(n, vec(n, MEMO_INIT)));
     for (int i = 0; i < n; i++) {
         std::cin >> coins[i];
     }
