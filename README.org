@@ -1,0 +1,90 @@
+* Algorithms Lab 2018
+This repo contains my solutions to the algorithms lab of ETH Zürich. The lab consists of problems every week that must be solved via an algorithm. 
+
+The primary language to solve the challenges is C++. I strive as much as possible to document my code and my algorithms. The description of the problems may be wonky, so I suggest that you give the associated PDF a read for a detailed explanation of the problem.
+
+** Overview
+|   Week | Problem               | Score | Solution                                                                  |
+|--------+-----------------------+-------+---------------------------------------------------------------------------|
+|      1 | Even Pairs            |   100 | Partial Sums                                                              |
+|      1 | Build The Sum         |   100 | Common Sense                                                              |
+|      1 | Dominoes              |   100 | Sliding over the dominoes                                                 |
+|      1 | Even Matrices         |   100 | Precomputation and reducing to even pairs                                 |
+| PotW 1 | Deck of Cards         |   100 | Precomputation + sliding window                                           |
+|      2 | Burning Coins         |   100 | Dynamic Programming                                                       |
+|      2 | Beach Bars            |   100 | Sliding Windowm                                                           |
+|      2 | The Great Game        |   100 | Dynamic Programming                                                       |
+|      2 | Search Snippets       |   100 | Sliding Window + sets of words for efficient min/max                      |
+| PotW 2 | From Russia With Love |   100 | Generalized version of Burning Coins -> Top-down DP                       |
+|      3 | Hit                   |   100 | CGAL intersection testing                                                 |
+|      3 | First Hit             |   100 | CGAL intersection testing + adversarial input mitigation (random shuffle) |
+|      3 | Antenna               |   100 | CGAL Min Circle                                                           |
+|      3 | Almost Antenna        |   100 | CGAL Min Circle and Support Points                                        |
+
+** Compilation and Running
+*** STL/BGL Files
+To compile the cpp files:
+#+BEGIN_SRC bash
+g++ -Wall -O3 filename.cpp -o filename.o
+#+END_SRC
+
+To run the file with a given input and redirect output to a file
+#+BEGIN_SRC bash
+./filename.o < testsets/test{i}.in > test{i}.out
+#+END_SRC
+
+To compare with the expected output, use `diff`
+#+BEGIN_SRC bash
+diff test{i}.out testsets/test{i}.out
+#+END_SRC
+
+Alternatively, you can do the previous in one line
+#+BEGIN_SRC bash
+diff <(./filename.o < testsets/test{i}.in) testsets/test{i}.out
+#+END_SRC
+
+*** CGAL
+Compiling CGAL files is slightly different, it makes use of the ~cgal_create_cmake_script~.
+In order to avoid to seperate the source code from compiled files, take advantage of an additional build folder.
+Compile as follows:
+#+BEGIN_SRC bash
+cgal_create_cmake_script
+mkdir build && cd build
+cmake ..
+make
+#+END_SRC
+
+To run, the procedure is the same as for STL/BGL files.
+
+** Tips & Tricks
+*** Adversarial Input
+- Input may be given in an adversarial way, in order to maximize
+  comparisions/operations. To avoid this, if the input order _does not matter_,
+  then ~std::random_shuffle~ is /always/ a good idea.
+*** Dynamic Programming
+1. When using multidimensional arrays, always keep the lowest dimensionality as
+   the first dimension. For some reason, this increases speed enough to go from
+   *TL* to *OK*. This proves handy in DP programs for memoization
+2. Memoization: Carefully think about what is required to be placed in the
+   memoization. Think about if the dimensionality can be reduced (e.g. as in
+   Russia, reducing to two behaviours, minimizing and maximizing).
+*** CGAL
+- Reading input directly into a ~std::vector~ and letting the compiler infer the
+  construction is much slower than reading it in, constructing it yourself and
+  then pushing it into the array.
+  - Faster:
+      #+BEGIN_SRC cpp
+std::vector<Construction> list(n);
+for(int i = 0; i < n; i++) {
+    long x, y; std::cin >> x >> y;
+    Construction z(x, y);
+    list[i] = z;
+}
+      #+END_SRC
+  - Slower:
+      #+BEGIN_SRC cpp
+std::vector<Construction> list(n);
+for(int i = 0; i < n; i++) {
+    std::cin >> list[i];
+}
+      #+END_SRC
