@@ -18,6 +18,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      3 | First Hit             |   100 | CGAL intersection testing + adversarial input mitigation (random shuffle) |
 |      3 | Antenna               |   100 | CGAL Min Circle                                                           |
 |      3 | Almost Antenna        |   100 | CGAL Min Circle and Support Points                                        |
+| PotW 3 | Chariot Race          |    80 | A brutal DP but DP nonetheless.                                           |
 
 ** Compilation and Running
 *** STL/BGL Files
@@ -66,6 +67,13 @@ To run, the procedure is the same as for STL/BGL files.
 2. Memoization: Carefully think about what is required to be placed in the
    memoization. Think about if the dimensionality can be reduced (e.g. as in
    Russia, reducing to two behaviours, minimizing and maximizing).
+3. *Carefully* consider all the cases when writing a DP recurrence. E.g.
+   =Chariot Race= had three distinct cases to consider, and you must very
+   carefully think about each one.
+4. DP can carry information from above (e.g. in the tree scenario, information
+   about the parent node may be useful). A sub-problem is not necessarily
+   separated from the rest.
+
 *** CGAL
 - Reading input directly into a ~std::vector~ and letting the compiler infer the
   construction is much slower than reading it in, constructing it yourself and
