@@ -19,6 +19,10 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      3 | Antenna               |   100 | CGAL Min Circle                                                           |
 |      3 | Almost Antenna        |   100 | CGAL Min Circle and Support Points                                        |
 | PotW 3 | Chariot Race          |    80 | A brutal DP but DP nonetheless.                                           |
+|      4 | First Steps with BGL  |   100 | Basic BGL intro (MST and Dijkstra shortest path)                          |
+|      4 | Ant Challenge         |   100 | Multiple MST and shortest path                                            |
+|      4 | Buddy Selection       |   100 | Maximum Cardinality matching                                              |
+
 
 ** Compilation and Running
 *** STL/BGL Files
@@ -94,3 +98,7 @@ for(int i = 0; i < n; i++) {
     std::cin >> list[i];
 }
       #+END_SRC
+*** BGL
+- Weight maps are linked to a graph, so a graph can only have one weight map. So
+  basically you cannot make one graph with mulitple weight maps, you need to
+  have one graph per weight map.
