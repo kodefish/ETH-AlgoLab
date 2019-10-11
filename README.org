@@ -22,6 +22,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      4 | First Steps with BGL  |   100 | Basic BGL intro (MST and Dijkstra shortest path)                          |
 |      4 | Ant Challenge         |   100 | Multiple MST and shortest path                                            |
 |      4 | Buddy Selection       |   100 | Maximum Cardinality matching                                              |
+|      4 | Shortest Paths        |   100 | Dijkstra                                                                  |
 
 
 ** Compilation and Running
@@ -78,6 +79,17 @@ To run, the procedure is the same as for STL/BGL files.
    about the parent node may be useful). A sub-problem is not necessarily
    separated from the rest.
 
+*** CPP
+- Set intersection of ~std::set~ can be done using ~std::set_intersection~
+  (should be imported with vector or set, or maybe just there by default). The
+  following code computes the intersection between 2 sets and stores the result
+  in the ~intersection~ vector. You can also use a ~std::set~ to store the
+  result, but ~std::back_inserter~ may complain about something or other.
+  #+BEGIN_SRC cpp
+std::set<int> set1, set2;
+std::vector<int> intersection;
+std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(), std::back_inserter(intersection));
+  #+END_SRC
 *** CGAL
 - Reading input directly into a ~std::vector~ and letting the compiler infer the
   construction is much slower than reading it in, constructing it yourself and
