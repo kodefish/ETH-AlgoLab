@@ -26,30 +26,18 @@ void testcase() {
     // Slow solution (n2) check every biker against every other biker
     std::vector<bool> biker_rides_off(n, true);
     for (int i = 0; i < n; i++) {
-        if (true || biker_rides_off[i]) {
+        if (biker_rides_off[i]) {
             for (int j = i + 1; j < n; j++) {
-                if (true || biker_rides_off[j]) {
+                if (biker_rides_off[j]) {
                     if (CGAL::do_intersect(biker_trajectories[i], biker_trajectories[j])) {
                         // Smallest angle is the one that is closest
                         Line li, lj;
                         li = biker_trajectories[i].supporting_line();
                         lj = biker_trajectories[j].supporting_line();
 
-                        // Compute slopes
-                        K::FT slope_i = -li.a()/li.b();
-                        K::FT slope_j = -lj.a()/lj.b();
-
-                        // Take absolute value (cuz no idea how to work with K::FT)
-                        K::FT abs_slope_i = (slope_i < 0) ? -slope_i:slope_i;
-                        K::FT abs_slope_j = (slope_j < 0) ? -slope_j:slope_j;
-
-                        if (abs_slope_i == abs_slope_j) {
-                            // Slopes are same but opporsite -> rider on the right has priority (i.e. the one with the positive slope)
-                            if (slope_i > 0) biker_rides_off[j] = biker_rides_off[j] && false;
-                            else biker_rides_off[i] = biker_rides_off[i] && false;
-                        } else if (abs_slope_i < abs_slope_j) {
+                        if (CGAL::compare_slope(li, lj) == CGAL::SMALLER) {
                             biker_rides_off[j] = biker_rides_off[j] && false;
-                        } else if (abs_slope_j < abs_slope_i) {
+                        } else {
                             biker_rides_off[i] = biker_rides_off[i] && false;
                         }
                     }
@@ -70,3 +58,4 @@ int main() {
     while (t--) testcase();
     return 0;
 }
+
