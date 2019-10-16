@@ -1,59 +1,49 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <CGAL/Exact_predicates_exact_constructions_kernel.h>
 
-#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
-
-typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
-typedef K::Point_2 Point;
-typedef K::Segment_2 Segment;
-typedef K::Ray_2 Ray;
-typedef K::Direction_2 Direction;
+typedef CGAL::Exact_predicates_exact_constructions_kernel K;
 typedef K::Line_2 Line;
+typedef K::Point_2 Point;
 
+struct BikerTrajectory {
+    long source;
+    K::FT slope;
+    int index;
+    
+    //    Order in descending order of y0 (highest point first)
+    bool operator<(const BikerTrajectory& t) const { return this->source < t.source;  }
+};
 
 void testcase() {
     // Read input
     long n; std::cin >> n;
 
-    std::vector<Ray> biker_trajectories;
+    // Store index of bikers
+    std::vector<BikerTrajectory> biker_trajectories;
     for (int i = 0; i < n; i++) {
         long y0, x1, y1; std::cin >> y0 >> x1 >> y1;
+        Line l(Point(0, y0), Point(x1, y1));
 
         // Create ray
-        biker_trajectories.push_back(Ray(Point(0, y0), Point(x1, y1)));
+        biker_trajectories.push_back(BikerTrajectory{y0, -l.a()/l.b(), i});
     }
 
-    // Slow solution (n2) check every biker against every other biker
+    // Sort bikers in descending order of y0
+    std::sort(biker_trajectories.begin(), biker_trajectories.end());
+
+    // Choose a random biker and follow him until we hit an intersection
+    // Stay on the biker that got to the intersection first, delete the one that got there second
+    // Keep track of who rides off, they all start with hearts full of hope
     std::vector<bool> biker_rides_off(n, true);
+    int last_collision = 0;
     for (int i = 0; i < n; i++) {
-        if (true || biker_rides_off[i]) {
-            for (int j = i + 1; j < n; j++) {
-                if (true || biker_rides_off[j]) {
-                    if (CGAL::do_intersect(biker_trajectories[i], biker_trajectories[j])) {
-                        // Smallest angle is the one that is closest
-                        Line li, lj;
-                        li = biker_trajectories[i].supporting_line();
-                        lj = biker_trajectories[j].supporting_line();
-
-                        // Compute slopes
-                        K::FT slope_i = -li.a()/li.b();
-                        K::FT slope_j = -lj.a()/lj.b();
-
-                        // Take absolute value (cuz no idea how to work with K::FT)
-                        K::FT abs_slope_i = (slope_i < 0) ? -slope_i:slope_i;
-                        K::FT abs_slope_j = (slope_j < 0) ? -slope_j:slope_j;
-
-                        if (abs_slope_i == abs_slope_j) {
-                            // Slopes are same but opporsite -> rider on the right has priority (i.e. the one with the positive slope)
-                            if (slope_i > 0) biker_rides_off[j] = biker_rides_off[j] && false;
-                            else biker_rides_off[i] = biker_rides_off[i] && false;
-                        } else if (abs_slope_i < abs_slope_j) {
-                            biker_rides_off[j] = biker_rides_off[j] && false;
-                        } else if (abs_slope_j < abs_slope_i) {
-                            biker_rides_off[i] = biker_rides_off[i] && false;
-                        }
-                    }
-                }
+        K::FT si = biker_trajectories[i].slope;
+        for (int j = 0; j < i; j++) {
+            if (biker_rides_off[biker_trajectories[j].index]) {
+                K::FT sj = biker_trajectories[j].slope;
+                biker_rides_off[biker_trajectories[j].index] = biker_rides_off[biker_trajectories[j].index] && si >= sj;
             }
         }
     }
@@ -70,3 +60,4 @@ int main() {
     while (t--) testcase();
     return 0;
 }
+
