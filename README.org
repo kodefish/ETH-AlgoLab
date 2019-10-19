@@ -23,6 +23,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      4 | Ant Challenge         |   100 | Multiple MST and shortest path                                            |
 |      4 | Buddy Selection       |   100 | Maximum Cardinality matching                                              |
 |      4 | Shortest Paths        |   100 | Dijkstra                                                                  |
+| Potw 4 | Motorcycles           |   100 | CGAL Intersections, slope logic, stack tracking and bottom up weird magic |
 
 
 ** Compilation and Running
@@ -110,6 +111,19 @@ for(int i = 0; i < n; i++) {
     std::cin >> list[i];
 }
       #+END_SRC
+- You can keep track of multiple variables using a =struct=, this can be used to
+  avoid having a bunch of different =vectors=. You just need to provide a
+  comparison function
+  #+BEGIN_SRC cpp
+struct Wrapper {
+    long x, y, z;
+
+    bool operator<(const Wrapper& t) const { return this->x < t.x; }
+}
+
+std::vector<Wrapper> vec;
+vec.push_back(Wrapper{x, y, z});
+  #+END_SRC
 *** BGL
 - Weight maps are linked to a graph, so a graph can only have one weight map. So
   basically you cannot make one graph with mulitple weight maps, you need to
