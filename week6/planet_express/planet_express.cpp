@@ -5,12 +5,14 @@
 // BGL includes
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/dijkstra_shortest_paths.hpp>
+#include <boost/graph/strong_components.hpp>
 
 typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::directedS,
                               boost::no_property,
                               boost::property<boost::edge_weight_t, int>> weighted_graph;
 typedef boost::property_map<weighted_graph, boost::edge_weight_t>::type weight_map;
 typedef boost::graph_traits<weighted_graph>::edge_descriptor edge_desc;
+typedef boost::graph_traits<weighted_graph>::edge_iterator edge_itr;
 typedef boost::graph_traits<weighted_graph>::vertex_descriptor vertex_desc;
 
 void testcase() {
@@ -28,52 +30,49 @@ void testcase() {
     for (int i = 0; i < m; i++) {
         int u, v, c; std::cin >> u >> v >> c;
         edge_desc e; bool s;
-        boost::tie(e, s) = boost::add_edge(u, v, universe);
+        boost::tie(e, s) = boost::add_edge(v, u, universe);
         weights[e] = c;
     }
 
-    // Figure out which vertices can go where
-    std::vector<std::vector<int>> pairwise_reachable(n);
-    for (int u = 0; u < t; u++) {
-        // Compute path to each other node in the teleportation network
-        // If pairwise reachable, then add edge u -> v and v -> u
-        // Compute distance map from u (unreachable vertices have distance INT_MAX)
-        std::vector<int> dist_map_u(n);
-        boost::dijkstra_shortest_paths(universe, teleportation_network[u],
-                                       boost::distance_map(boost::make_iterator_property_map(
-                                                               dist_map_u.begin(), boost::get(boost::vertex_index, universe))));
-        for (int v = u + 1; v < t; v++) {
-            // Compute distance map from v (unreachable vertices have distance INT_MAX)
-            std::vector<int> dist_map_v(n);
-            boost::dijkstra_shortest_paths(universe, teleportation_network[v],
-                                           boost::distance_map(boost::make_iterator_property_map(
-                                                                   dist_map_v.begin(), boost::get(boost::vertex_index, universe))));
-            if (dist_map_u[teleportation_network[v]]  < INT_MAX && dist_map_v[teleportation_network[u]] < INT_MAX) {
-                // U, v are pairwise reachable
-                pairwise_reachable[u].push_back(v);
-                pairwise_reachable[u].push_back(u);
-            }
-        }
+    // Compute teleportation network
+    // 2 nodes are connected if they are strongly connected
+    // So we create a new node for every connected component, and use it as a "hub"
+    // Travelling to the hub costs t(u) (which is the same for all nodes in the component)
+    // Travelling from the hub is free.
+    // 1. Compute strongly connected components
+    std::vector<int> scc_map(n);
+    int nscc = boost::strong_components(universe,
+                                        boost::make_iterator_property_map(scc_map.begin(), boost::get(boost::vertex_index, universe)));
+
+    // Compute size of each scc
+    std::vector<int> scc_size(nscc, 0);
+    for (int i = 0; i < t; i++) {
+        scc_size[scc_map[teleportation_network[i]]]++;
     }
 
-    // Actually build teleportation network
-    for (int u = 0; u < n; u++) {
-        for (int v = 0; v < pairwise_reachable[u].size(); v++) {
-            edge_desc e; bool s;
-            boost::tie(e, s) = boost::add_edge(u, pairwise_reachable[u][v], universe);
-            weights[e] = pairwise_reachable[u].size();
-        }
+    // Add teleportation hub connections
+    for (int i = 0; i < t; i++) {
+        int u = teleportation_network[i];
+        edge_desc e; bool s;
+
+        // Add edge from u to hub_u of cost t(u), which is the size of the component minus 1 (itself)
+        boost::tie(e, s) = boost::add_edge(u, n+scc_map[u], universe);
+        weights[e] = scc_size[scc_map[u]] - 1;
+
+        // Add edge from hub_u to u of cost 0
+        boost::tie(e, s) = boost::add_edge(n+scc_map[u], u, universe);
+        weights[e] = 0;
     }
 
     // Find warehouse closest to destination
     // For every warehouse, compute distance to client and take the minimal one
     int min_dist_to_client = INT_MAX;
+    std::vector<int> dist_map(n + nscc);
+    boost::dijkstra_shortest_paths(universe, n-1,
+                                    boost::distance_map(boost::make_iterator_property_map(
+                                                            dist_map.begin(), boost::get(boost::vertex_index, universe))));
     for (int i = 0; i < k; i++) {
-        std::vector<int> dist_map(n);
-        boost::dijkstra_shortest_paths(universe, i,
-                                       boost::distance_map(boost::make_iterator_property_map(
-                                                               dist_map.begin(), boost::get(boost::vertex_index, universe))));
-       min_dist_to_client = std::min(min_dist_to_client, dist_map[n-1]);
+       min_dist_to_client = std::min(min_dist_to_client, dist_map[i]);
     }
 
     // Print "no" if one-second delivery is impossible, otherwise print time it takes
@@ -88,3 +87,4 @@ int main() {
     while (t--) testcase();
     return 0;
 }
+
