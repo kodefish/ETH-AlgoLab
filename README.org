@@ -25,6 +25,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      4 | Shortest Paths        |       100 | Dijkstra                                                                  |
 | Potw 4 | Motorcycles           |       100 | CGAL Intersections, slope logic, stack tracking and bottom up weird magic |
 |      5 | Boats                 |       100 | Greedy Algorithm                                                          |
+|      5 | Light at the Museum   |       100 | Split & List                                                              |
 |--------+-----------------------+-----------+---------------------------------------------------------------------------|
 |        | total                 | 2100/2480 | A lot of time.                                                            |
 
@@ -128,3 +129,18 @@ vec.push_back(Wrapper{x, y, z});
 - Weight maps are linked to a graph, so a graph can only have one weight map. So
   basically you cannot make one graph with mulitple weight maps, you need to
   have one graph per weight map.
+*** Split & List
+You can use ~std::map~ and use ~find()~ to search for specific keys. It is
+logarithmic, so no need to implement some binary search yourself, just use the
+STL.
+#+BEGIN_SRC cpp
+std::map<int, int> s1, s2;
+for(auto s1_itr : s1) {
+    // Compute the key
+    auto key = smth - s1.first;
+    auto s2_itr = s2.find(key);
+    if (s2_itr != s2.end()) {
+        // key exists! so do something
+    }
+}
+#+END_SRC
