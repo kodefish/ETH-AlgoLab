@@ -92,6 +92,22 @@ std::set<int> set1, set2;
 std::vector<int> intersection;
 std::set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(), std::back_inserter(intersection));
   #+END_SRC
+- Priority queue (~std::priority_queue~ found in ~queue.h~) let's us keep and
+  ordred stack (ordering is preserved through insertion). If using pairs
+  (~std::pair~), by default they will be ordred based on the first element of
+  the pair.
+  #+BEGIN_SRC cpp
+#include <queue>
+// By default, priority queue orders in decreasing order
+std::priority_queue<int> q1;
+// Use this to sort in ascending order
+std::priority_queue<int, std::vector<int>, std::greater<int>> q2;
+
+// Push, top an pop are the main useful ones
+q1.push(1);
+int t = q1.top();
+q1.pop();
+  #+END_SRC
 *** CGAL
 - Reading input directly into a ~std::vector~ and letting the compiler infer the
   construction is much slower than reading it in, constructing it yourself and
