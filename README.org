@@ -2,32 +2,35 @@
 This repo contains my solutions to the algorithms lab of ETH Zürich. The lab consists of problems every week that must be solved via an algorithm. 
 
 ** Overview
-|   Week | Problem               |     Score | Solution                                                                  |
-|--------+-----------------------+-----------+---------------------------------------------------------------------------|
-|      1 | Even Pairs            |       100 | Partial Sums                                                              |
-|      1 | Build The Sum         |       100 | Common Sense                                                              |
-|      1 | Dominoes              |       100 | Sliding over the dominoes                                                 |
-|      1 | Even Matrices         |       100 | Precomputation and reducing to even pairs                                 |
-| PotW 1 | Deck of Cards         |       100 | Precomputation + sliding window                                           |
-|      2 | Burning Coins         |       100 | Dynamic Programming                                                       |
-|      2 | Beach Bars            |       100 | Sliding Windowm                                                           |
-|      2 | The Great Game        |       100 | Dynamic Programming                                                       |
-|      2 | Search Snippets       |       100 | Sliding Window + sets of words for efficient min/max                      |
-| PotW 2 | From Russia With Love |       100 | Generalized version of Burning Coins -> Top-down DP                       |
-|      3 | Hit                   |       100 | CGAL intersection testing                                                 |
-|      3 | First Hit             |       100 | CGAL intersection testing + adversarial input mitigation (random shuffle) |
-|      3 | Antenna               |       100 | CGAL Min Circle                                                           |
-|      3 | Almost Antenna        |       100 | CGAL Min Circle and Support Points                                        |
-| PotW 3 | Chariot Race          |     80/80 |                                                                           |
-|      4 | First Steps with BGL  |       100 | Basic BGL intro (MST and Dijkstra shortest path)                          |
-|      4 | Ant Challenge         |       100 | Multiple MST and shortest path                                            |
-|      4 | Buddy Selection       |       100 | Maximum Cardinality matching                                              |
-|      4 | Shortest Paths        |       100 | Dijkstra                                                                  |
-| Potw 4 | Motorcycles           |       100 | CGAL Intersections, slope logic, stack tracking and bottom up weird magic |
-|      5 | Boats                 |       100 | Greedy Algorithm                                                          |
-|      5 | Light at the Museum   |       100 | Split & List                                                              |
-|--------+-----------------------+-----------+---------------------------------------------------------------------------|
-|        | total                 | 2100/2480 | A lot of time.                                                            |
+|   Week | Problem                 |     Score | Solution                                                                  |
+|--------+-------------------------+-----------+---------------------------------------------------------------------------|
+|      1 | Even Pairs              |       100 | Partial Sums                                                              |
+|      1 | Build The Sum           |       100 | Common Sense                                                              |
+|      1 | Dominoes                |       100 | Sliding over the dominoes                                                 |
+|      1 | Even Matrices           |       100 | Precomputation and reducing to even pairs                                 |
+| PotW 1 | Deck of Cards           |       100 | Precomputation + sliding window                                           |
+|      2 | Burning Coins           |       100 | Dynamic Programming                                                       |
+|      2 | Beach Bars              |       100 | Sliding Windowm                                                           |
+|      2 | The Great Game          |       100 | Dynamic Programming                                                       |
+|      2 | Search Snippets         |       100 | Sliding Window + sets of words for efficient min/max                      |
+| PotW 2 | From Russia With Love   |       100 | Generalized version of Burning Coins -> Top-down DP                       |
+|      3 | Hit                     |       100 | CGAL intersection testing                                                 |
+|      3 | First Hit               |       100 | CGAL intersection testing + adversarial input mitigation (random shuffle) |
+|      3 | Antenna                 |       100 | CGAL Min Circle                                                           |
+|      3 | Almost Antenna          |       100 | CGAL Min Circle and Support Points                                        |
+| PotW 3 | Chariot Race            |     80/80 |                                                                           |
+|      4 | First Steps with BGL    |       100 | Basic BGL intro (MST and Dijkstra shortest path)                          |
+|      4 | Ant Challenge           |       100 | Multiple MST and shortest path                                            |
+|      4 | Buddy Selection         |       100 | Maximum Cardinality matching                                              |
+|      4 | Shortest Paths          |       100 | Dijkstra                                                                  |
+| Potw 4 | Motorcycles             |       100 | CGAL Intersections, slope logic, stack tracking and bottom up weird magic |
+|      5 | Boats                   |       100 | Greedy Algorithm                                                          |
+|      5 | Light at the Museum     |       100 | Split & List                                                              |
+|      5 | Octopussy               |       100 | Greedy Algorithm                                                          |
+| Potw 5 | Planet Express          |     80/80 | Shortest paths and vertex aggregation                                     |
+|      6 | Coin Tossing Tournament |       100 | Max flow                                                                  |
+|--------+-------------------------+-----------+---------------------------------------------------------------------------|
+|        | total                   | 2100/2480 | A lot of time.                                                            |
 
 
 ** Compilation and Running
