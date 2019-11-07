@@ -30,6 +30,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 | Potw 5 | Planet Express          |     80/80 | Shortest paths and vertex aggregation                                     |
 |      6 | Coin Tossing Tournament |       100 | Max flow                                                                  |
 |      6 | Shopping Trip           |       100 | Max flow                                                                  |
+|      6 | Tetris                  |       100 | Max flow and vertex capacity                                              |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
