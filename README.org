@@ -35,6 +35,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 | Potw 6 | Attack of the Clones    |         0 | -                                                                         |
 |      7 | Maximize It             |       100 | LP                                                                        |
 |      7 | Diet                    |       100 | LP                                                                        |
+|      7 | Inball                  |       100 | LP + some highschool maths                                                |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
@@ -150,6 +151,9 @@ struct Wrapper {
 std::vector<Wrapper> vec;
 vec.push_back(Wrapper{x, y, z});
   #+END_SRC
+- LP: Double check your inequalities and constraints. 90% of mistakes come from
+  there. Check that you have added all the lower and upper bounds you need (for
+  example a radius cannot be less than 0).
 *** BGL
 - Weight maps are linked to a graph, so a graph can only have one weight map. So
   basically you cannot make one graph with mulitple weight maps, you need to
