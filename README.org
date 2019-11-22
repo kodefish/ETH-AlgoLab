@@ -36,6 +36,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      7 | Maximize It             |       100 | LP                                                                        |
 |      7 | Diet                    |       100 | LP                                                                        |
 |      7 | Inball                  |       100 | LP + some highschool maths                                                |
+|      7 | Radiation               |       100 | LP + Binary Search                                                        |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
