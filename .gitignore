@@ -7,3 +7,6 @@ cmake*
 build*
 
 eth-algolab
+
+*.pdf
+*.ps
