@@ -37,6 +37,8 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      7 | Diet                    |       100 | LP                                                                        |
 |      7 | Inball                  |       100 | LP + some highschool maths                                                |
 |      7 | Radiation               |       100 | LP + Binary Search                                                        |
+| Potw 7 | Cantonal Courier        |         0 | -                                                                         |
+|      8 | Graypes                 |       100 | Delaunay Triangulation                                                    |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
@@ -155,6 +157,11 @@ vec.push_back(Wrapper{x, y, z});
 - LP: Double check your inequalities and constraints. 90% of mistakes come from
   there. Check that you have added all the lower and upper bounds you need (for
   example a radius cannot be less than 0).
+- You can implement ~ceil_to_double(x)~ by just calling ~-floor_to_double(-x)~.
+  You can find the implementation for ~floor_to_double~ on the judge, in the
+  ~hello-exact.cpp~ sample code. This saves you time in not having to rewrite
+  the function and ensures you don't make any typos, as that particular function
+  is very typo-prone.
 *** BGL
 - Weight maps are linked to a graph, so a graph can only have one weight map. So
   basically you cannot make one graph with mulitple weight maps, you need to
