@@ -40,6 +40,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 | Potw 7 | Cantonal Courier        |         0 | -                                                                         |
 |      8 | Graypes                 |       100 | Delaunay Triangulation                                                    |
 |      8 | Bistro                  |       100 | Delaunay Triangulation                                                    |
+|      8 | Germs                   |       100 | Delaunay Triangulation                                                    |
 | PotW 8 | Suez                    |       100 | LP                                                                        |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
@@ -164,6 +165,27 @@ vec.push_back(Wrapper{x, y, z});
   ~hello-exact.cpp~ sample code. This saves you time in not having to rewrite
   the function and ensures you don't make any typos, as that particular function
   is very typo-prone.
+- You can store information in vertices/faces when using Delaunay
+  Triangulations. This is especially useful if you want to avoid using ~map~ to
+  ~Vertex_handle~ or ~Face_hanlde~. The syntax is as follows:
+  #+BEGIN_SRC cpp
+#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
+#include <CGAL/Exact_predicates_exact_constructions_kernel_with_sqrt.h>
+#include <CGAL/Triangulation_data_structure_2.h>
+#include <CGAL/Triangulation_vertex_base_with_info_2.h>
+#include <CGAL/Delaunay_triangulation_2.h>
+
+typedef CGAL::Exact_predicates_inexact_constructions_kernel IK;
+typedef CGAL::Exact_predicates_exact_constructions_kernel_with_sqrt EK;
+// Define the kind of information to store in the vertex here
+typedef CGAL::Triangulation_vertex_base_with_info_2<IK::FT,IK> vertex_t;
+typedef CGAL::Triangulation_face_base_2<IK> face_t;
+typedef CGAL::Triangulation_data_structure_2<vertex_t,face_t> triangulation_t;
+typedef CGAL::Delaunay_triangulation_2<IK,triangulation_t> delaunay_t;
+
+Vertex_handle e;
+e->info() = 42;
+  #+END_SRC
 *** BGL
 - Weight maps are linked to a graph, so a graph can only have one weight map. So
   basically you cannot make one graph with mulitple weight maps, you need to
