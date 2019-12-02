@@ -39,6 +39,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      7 | Radiation               |       100 | LP + Binary Search                                                        |
 | Potw 7 | Cantonal Courier        |         0 | -                                                                         |
 |      8 | Graypes                 |       100 | Delaunay Triangulation                                                    |
+|      8 | Bistro                  |       100 | Delaunay Triangulation                                                    |
 | PotW 8 | Suez                    |       100 | LP                                                                        |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
