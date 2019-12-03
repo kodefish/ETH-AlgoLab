@@ -41,6 +41,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      8 | Graypes                 |       100 | Delaunay Triangulation                                                    |
 |      8 | Bistro                  |       100 | Delaunay Triangulation                                                    |
 |      8 | Germs                   |       100 | Delaunay Triangulation                                                    |
+|      8 | Germs                   |        80 | Delaunay Triangulation + iterative DFS                                    |
 | PotW 8 | Suez                    |       100 | LP                                                                        |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
