@@ -44,6 +44,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      8 | Germs                   |        80 | Delaunay Triangulation + iterative DFS                                    |
 | PotW 8 | Suez                    |       100 | LP                                                                        |
 |      9 | Satellites              |       100 | Minimal vertex cover                                                      |
+|      9 | Algocoon Group          |       100 | MinCut MaxFlow                                                            |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
