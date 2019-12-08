@@ -43,6 +43,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      8 | Germs                   |       100 | Delaunay Triangulation                                                    |
 |      8 | Germs                   |        80 | Delaunay Triangulation + iterative DFS                                    |
 | PotW 8 | Suez                    |       100 | LP                                                                        |
+|      9 | Satellites              |       100 | Minimal vertex cover                                                      |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
@@ -193,6 +194,9 @@ e->info() = 42;
   have one graph per weight map.
 - Try to keep the amount of vertices to a minimum. Try to see if you can aggregate or use
   some sort of "hub".
+- The sample code on the judge contains the code for a minimal vertex cover, and
+  as a bonus it also contains a BFS implementation, should you need inspiration
+  for one at some point (like in H1N1 wink wink).
 *** Split & List
 You can use ~std::map~ and use ~find()~ to search for specific keys. It is
 logarithmic, so no need to implement some binary search yourself, just use the
