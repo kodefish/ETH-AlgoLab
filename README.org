@@ -45,6 +45,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 | PotW 8 | Suez                    |       100 | LP                                                                        |
 |      9 | Satellites              |       100 | Minimal vertex cover                                                      |
 |      9 | Algocoon Group          |       100 | MinCut MaxFlow                                                            |
+|      9 | Canteen                 |       100 | MinCost Max Flow + transforming negative weights into positive            |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
@@ -198,6 +199,10 @@ e->info() = 42;
 - The sample code on the judge contains the code for a minimal vertex cover, and
   as a bonus it also contains a BFS implementation, should you need inspiration
   for one at some point (like in H1N1 wink wink).
+- If you have negative weights, you can figure out the max weight, and make all
+  your weights positve by replacing ~-cost~ with ~MAX_COST - cost~. Then you
+  have to adjust for it later, when computing the final cost with
+  ~cost = (MAX_COST * flow) - cost~.
 *** Split & List
 You can use ~std::map~ and use ~find()~ to search for specific keys. It is
 logarithmic, so no need to implement some binary search yourself, just use the
