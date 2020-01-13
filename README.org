@@ -46,6 +46,8 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      9 | Satellites              |       100 | Minimal vertex cover                                                      |
 |      9 | Algocoon Group          |       100 | MinCut MaxFlow                                                            |
 |      9 | Canteen                 |       100 | MinCost Max Flow + transforming negative weights into positive            |
+| PotW 9 | GoldenEye               |       100 | Delaunay Triangulation + Union Find                                       |
+|     10 | Return of the Jedi      |       100 | MST + voodoo black magic                                                  |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
