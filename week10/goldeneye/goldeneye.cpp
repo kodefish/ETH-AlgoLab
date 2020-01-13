@@ -19,7 +19,6 @@ typedef Triangulation::Edge_iterator  Edge_iterator;
 typedef Triangulation::Vertex_handle Vertex_handle;
 typedef boost::disjoint_sets_with_storage<> UnionFind;
 
-
 void testcase() {
     // read number of jammers and missions
     std::size_t n, m;
@@ -61,6 +60,11 @@ void testcase() {
         return std::get<2>(a) < std::get<2>(b);
     });
 
+    K::FT a = 0, b = 0;
+    UnionFind uf_a(n);
+    UnionFind uf_b(n);
+    std::vector<std::tuple<int, int, K::FT>>::iterator a_itr = edges.begin();
+    std::vector<std::tuple<int, int, K::FT>>::iterator b_itr = edges.begin();
     for (std::size_t i = 0; i < m; i++) {
         K::Point_2 start, end; std::cin >> start >> end;
         Vertex_handle u = t.nearest_vertex(start);
@@ -74,12 +78,40 @@ void testcase() {
         if (4*max_dist <= p && uf_n.find_set(u->info()) == uf_n.find_set(v->info())) {
             // Mission possible!
             std::cout << "y";
+
+            if (b < 4*max_dist) {
+                b = 4*max_dist;
+            }
+
+            // Add edges necessary to reach t from s
+            for (; b_itr != edges.end() && uf_b.find_set(u->info()) != uf_b.find_set(v->info()); b_itr++) {
+                uf_b.union_set(std::get<0>(*b_itr), std::get<1>(*b_itr));
+            }
         } else {
             std::cout << "n";
         }
+
+
+        // Find minimal power consumption, regardless of the outcome of the mission under the p-umbrella
+        if (a < 4*max_dist) {
+            a = 4*max_dist;
+        }
+
+        // Add edges necessary to reach t from s
+        for (; a_itr != edges.end() && uf_a.find_set(u->info()) != uf_a.find_set(v->info()); a_itr++) {
+            uf_a.union_set(std::get<0>(*a_itr), std::get<1>(*a_itr));
+        }
     }
     std::cout << std::endl;
-    std::cout << 4*p << std::endl << p << std::endl;
+
+    // Get the largest squared distance (which is last, since it's sorted)
+    if (a_itr != edges.begin() && std::get<2>(*(a_itr-1)) > a)
+        a = std::get<2>(*(a_itr-1));
+
+    if (b_itr != edges.begin() && std::get<2>(*(b_itr-1)) > b)
+        b = std::get<2>(*(b_itr-1));
+
+    std::cout << a << std::endl << b << std::endl;
 
 }
 

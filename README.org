@@ -190,6 +190,22 @@ typedef CGAL::Delaunay_triangulation_2<IK,triangulation_t> delaunay_t;
 Vertex_handle e;
 e->info() = 42;
   #+END_SRC
+- Adding to the previous point, you can directly init the info of a vertex by passing the
+  insert method a ~std::vector<std::pair<K::Point_2, int>>~.
+  #+BEGIN_SRC cpp
+    std::vector<std::pair<K::Point_2, int>> pts;
+    pts.reserve(n);
+    for (std::size_t i = 0; i < n; ++i) {
+        K::Point_2 pt;
+        std::cin >> pt;
+        pts.push_back(std::make_pair(pt, i));
+    }
+
+    // construct triangulation
+    Triangulation t;
+    t.insert(pts.begin(), pts.end());
+  #+END_SRC
+ 
 *** BGL
 - Weight maps are linked to a graph, so a graph can only have one weight map. So
   basically you cannot make one graph with mulitple weight maps, you need to
@@ -203,6 +219,19 @@ e->info() = 42;
   your weights positve by replacing ~-cost~ with ~MAX_COST - cost~. Then you
   have to adjust for it later, when computing the final cost with
   ~cost = (MAX_COST * flow) - cost~.
+- You can use BGL's ~<boost/pending/disjoint_sets.hpp>~ as an implementation of union
+  set.
+  #+BEGIN_SRC cpp
+#include <boost/pending/disjoint_sets.hpp>
+typedef boost::disjoint_sets_with_storage<> UnionFind;
+UnionFind uf_n(n);
+// Union to elements to the same set
+uf_n.union_set(v1, v2);
+// Get set of element
+uf_n.find_set(v1);
+// Check if two elements are in the same set
+uf_n.find_set(v1) == uf_n.find_set(v2);
+  #+END_SRC
 *** Split & List
 You can use ~std::map~ and use ~find()~ to search for specific keys. It is
 logarithmic, so no need to implement some binary search yourself, just use the
