@@ -49,6 +49,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 | PotW 9 | GoldenEye               |       100 | Delaunay Triangulation + Union Find                                       |
 |     10 | Return of the Jedi      |       100 | MST + voodoo black magic                                                  |
 |     10 | Light the Stage         |       100 | Delaunay Triangulation                                                    |
+|     10 | Moving Books            |       100 | Greedy                                                                    |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
