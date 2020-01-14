@@ -19,78 +19,65 @@ void testcase() {
     // read number of jammers and missions
     std::size_t m, n;
     std::cin >> m >> n;
-    std::cerr << "new testcase, " << m << " players" << std::endl;
 
     // read points
-    std::vector<std::pair<K::Point_2, int>> players;
-    std::vector<K::FT> radii;
-    players.reserve(m);
+    std::vector<std::pair<K::Point_2, K::FT>> players;
     for (std::size_t i = 0; i < m; ++i) {
         int x, y; K::FT r;
         std::cin >> x >> y >> r;
-        players.push_back(std::make_pair(K::Point_2(x, y), i));
-        radii.push_back(r);
+        players.push_back(std::make_pair(K::Point_2(x, y), r));
     }
-
-    // construct triangulation
-    Triangulation t;
-    t.insert(players.begin(), players.end());
 
     // read in lamp_raidus (since we have a 45° angle, and tan 45° = 1, so it's the same as the height, yay!)
     K::FT lamp_radius; std::cin >> lamp_radius;
 
     // read in each lamp
-    std::vector<K::Point_2> lamps;
+    std::vector<std::pair<K::Point_2, int>> lamps;
     for (std::size_t i = 0; i < n; i++) {
       int x, y; std::cin >> x >> y;
-      lamps.push_back(K::Point_2(x, y));
+      lamps.push_back(std::make_pair(K::Point_2(x, y), i));
     }
 
-    // simulate the game basically
-    std::vector<int> eliminated_players;
-    for (std::size_t i = 0; i < n && t.number_of_vertices() > 0;) {
-      Vertex_handle nearest_player = t.nearest_vertex(lamps[i]);
-      std::cerr << "light: " << i << "\tnearest player " << nearest_player->info();
-      K::FT min_dist = (lamp_radius + radii[nearest_player->info()]);
-      std::cerr << "\tmindist2: " << min_dist*min_dist << ", sq dist: " << CGAL::squared_distance(lamps[i], nearest_player->point()) << std::endl;
-      if (min_dist * min_dist > CGAL::squared_distance(lamps[i], nearest_player->point())) {
-        // Player is eliminated
-        eliminated_players.push_back(nearest_player->info());
-        t.remove(nearest_player);
-      } else {
-        // No overlap with nearest player -> go to next lamp/round
-        // If there are still players left, then players eliminated in this round are not winners
-        std::cerr << "eliminated players in round " << i << ": ";
-        for (std::size_t u = 0; u < eliminated_players.size(); u++) std::cerr << eliminated_players[u] << " ";
-        std::cerr << std::endl;
-        if (t.number_of_vertices() > 0) eliminated_players.clear();
-        i++;
+    // construct triangulation
+    Triangulation t;
+    t.insert(lamps.begin(), lamps.end());
+
+    // check for each player if they get hit
+    // keep track of which lamp eliminates the player i
+    std::vector<int> eliminated_by(m, INT_MAX);
+    for (std::size_t i = 0; i < m; i++) {
+      Vertex_handle nearest_lamp = t.nearest_vertex(players[i].first);
+      K::FT min_dist = (lamp_radius + players[i].second);
+
+      K::FT dist2 = CGAL::squared_distance(nearest_lamp->point(), players[i].first);
+      if (min_dist * min_dist > dist2) {
+        eliminated_by[i] = nearest_lamp->info();
+        // overlap! check if player got hit by a lamp before this one
+        for (int l = 0; l < eliminated_by[i]; l++) {
+          if (min_dist * min_dist > CGAL::squared_distance(lamps[l].first, players[i].first)) {
+            eliminated_by[i] = l;
+          }
+        }
       }
     }
 
-    // Print winners
-    // Winners are players left in the game or if none are left it's the players eliminated in the last round
-    std::vector<int> winners;
-    if (t.number_of_vertices() > 0) {
-      std::cerr << "players still left!" << std::endl;
-      for (Vertex_iterator v = t.finite_vertices_begin(); v != t.finite_vertices_end(); v++) {
-        winners.push_back(v->info());
-      }
-    } else {
-      std::cerr << "winners died in last round" << std::endl;
-      winners = eliminated_players;
+    // find players eliminated by largest lamp idx
+    int max_lamp_idx = INT_MIN;
+    for (std::size_t i = 0; i < m; i++) {
+      max_lamp_idx = std::max(max_lamp_idx, eliminated_by[i]);
     }
 
-    std::sort(winners.begin(), winners.end());
-    for (std::size_t i = 0; i < winners.size(); i++) std::cout << winners[i] << " ";
+    for (std::size_t i = 0; i < m; i++) {
+      if (eliminated_by[i] == max_lamp_idx) std::cout << i << " ";
+    }
     std::cout << std::endl;
+
 }
 
 int main() {
     std::ios_base::sync_with_stdio(false);
     std::cout << std::setiosflags(std::ios::fixed) << std::setprecision(0);
     int t; std::cin >> t;
-    t =8;
     while (t--) testcase();
     return 0;
 }
