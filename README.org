@@ -18,7 +18,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      3 | First Hit               |       100 | CGAL intersection testing + adversarial input mitigation (random shuffle) |
 |      3 | Antenna                 |       100 | CGAL Min Circle                                                           |
 |      3 | Almost Antenna          |       100 | CGAL Min Circle and Support Points                                        |
-| PotW 3 | Chariot Race            |     80/80 |                                                                           |
+| PotW 3 | Chariot Race            |        80 | -                                                                         |
 |      4 | First Steps with BGL    |       100 | Basic BGL intro (MST and Dijkstra shortest path)                          |
 |      4 | Ant Challenge           |       100 | Multiple MST and shortest path                                            |
 |      4 | Buddy Selection         |       100 | Maximum Cardinality matching                                              |
@@ -27,7 +27,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      5 | Boats                   |       100 | Greedy Algorithm                                                          |
 |      5 | Light at the Museum     |       100 | Split & List                                                              |
 |      5 | Octopussy               |       100 | Greedy Algorithm                                                          |
-| Potw 5 | Planet Express          |     80/80 | Shortest paths and vertex aggregation                                     |
+| Potw 5 | Planet Express          |        80 | Shortest paths and vertex aggregation                                     |
 |      6 | Coin Tossing Tournament |       100 | Max flow                                                                  |
 |      6 | Shopping Trip           |       100 | Max flow                                                                  |
 |      6 | Tetris                  |       100 | Max flow and vertex capacity                                              |
@@ -51,8 +51,9 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |     10 | Light the Stage         |       100 | Delaunay Triangulation                                                    |
 |     10 | Moving Books            |       100 | Greedy                                                                    |
 |     10 | Defensive Line          |       100 | Sliding window precomputation and DP                                      |
+|     11 | DHL                     |        99 | Bottom up DP                                                              |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
-|        | total                   | 2100/2480 | A lot of time.                                                            |
+|        | total                   | 4539/6680 | A lot of time.                                                            |
 
 
 ** Compilation and Running
