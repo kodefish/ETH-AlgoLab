@@ -50,6 +50,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |     10 | Return of the Jedi      |       100 | MST + voodoo black magic                                                  |
 |     10 | Light the Stage         |       100 | Delaunay Triangulation                                                    |
 |     10 | Moving Books            |       100 | Greedy                                                                    |
+|     10 | Defensive Line          |       100 | Sliding window precomputation and DP                                      |
 |--------+-------------------------+-----------+---------------------------------------------------------------------------|
 |        | total                   | 2100/2480 | A lot of time.                                                            |
 
