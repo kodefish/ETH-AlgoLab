@@ -9,13 +9,18 @@ double dp(int start, int attackers, const int num_defenders, const std::vector<i
 
     if (memo[attackers][start] != MEMO_INIT) return memo[attackers][start];
 
+    // If only one attacker left
     double best_strategy = -1;
-    for (int i = start; i < num_defenders; i++) {
-        if (sw[i] > 0) { // Only consider possible attack interval starts
-            double rec = dp(i + sw[i], attackers - 1, num_defenders, sw, memo);
-            if (rec < 0) continue; // Only consider legal strategies
-            double strategy = sw[i] + rec;
-            if (strategy > best_strategy) best_strategy = strategy;
+    if (attackers == 1) {
+        best_strategy = std::max((double) sw[start], dp(start + 1, attackers, num_defenders, sw, memo));
+    } else {
+        for (int i = start; i < num_defenders; i++) {
+            if (sw[i] > 0) { // Only consider possible attack interval starts
+                double rec = dp(i + sw[i], attackers - 1, num_defenders, sw, memo);
+                if (rec < 0) continue; // Only consider legal strategies
+                double strategy = sw[i] + rec;
+                if (strategy > best_strategy) best_strategy = strategy;
+            }
         }
     }
 
