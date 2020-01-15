@@ -1,24 +1,27 @@
 #include <iostream>
 #include <vector>
 
-const double MEMO_INIT = -2;
+const int MEMO_INIT = -2;
 
-double dp(int start, int attackers, const int num_defenders, const std::vector<int> & sw, std::vector<std::vector<double>> & memo) {
-    if (attackers == 0) return 0; // No attackers left, legal strategy found
+int dp(int start, int attackers, const int num_defenders, const std::vector<int> & sw, std::vector<std::vector<int>> & memo) {
     if (start == num_defenders) return -1; // Attackers left, no more defenders -> illegal strategy
 
-    if (memo[attackers][start] != MEMO_INIT) return memo[attackers][start];
+    //if (memo[attackers][start] != MEMO_INIT) return memo[attackers][start];
 
     // If only one attacker left
-    double best_strategy = -1;
+    int best_strategy = -1;
     if (attackers == 1) {
-        best_strategy = std::max((double) sw[start], dp(start + 1, attackers, num_defenders, sw, memo));
+        if (start == num_defenders - 1) return sw[start] > 0 ? sw[start] : -1;
+
+        int strategy = sw[start] > 0 ? sw[start] : -1;
+        int next = dp(start + 1, attackers, num_defenders, sw, memo);
+        best_strategy = std::max(strategy, next);
     } else {
         for (int i = start; i < num_defenders; i++) {
             if (sw[i] > 0) { // Only consider possible attack interval starts
-                double rec = dp(i + sw[i], attackers - 1, num_defenders, sw, memo);
+                int rec = dp(i + sw[i], attackers - 1, num_defenders, sw, memo);
                 if (rec < 0) continue; // Only consider legal strategies
-                double strategy = sw[i] + rec;
+                int strategy = sw[i] + rec;
                 if (strategy > best_strategy) best_strategy = strategy;
             }
         }
@@ -52,7 +55,7 @@ void testcase() {
         }
     }
 
-    std::vector<std::vector<double>> memo(m+1, std::vector<double>(n, MEMO_INIT));
+    std::vector<std::vector<int>> memo(m+1, std::vector<int>(n, MEMO_INIT));
     int best_strategy = dp(0, m, n, sw, memo);
     if (best_strategy < 0) std::cout << "fail" << std::endl;
     else std::cout << best_strategy << std::endl;
