@@ -55,8 +55,9 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      11 | DHL                     |        99 | Bottom up DP                                                              |
 |      11 | Evolution               |       100 | DFS + Binary Search                                                       |
 |      11 | Empire Strikes Back     |       100 | Delaunay + LP                                                             |
+|      11 | Surveillance Photos     |       100 | Max Flow                                                                  |
 |---------+-------------------------+-----------+---------------------------------------------------------------------------|
-|         | total                   | 4539/6680 | A lot of time.                                                            |
+|         | total                   | 4939/6680 | A lot of time.                                                            |
 
 
 ** Compilation and Running
