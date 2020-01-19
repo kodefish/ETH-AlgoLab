@@ -57,6 +57,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      11 | Empire Strikes Back     |       100 | Delaunay + LP                                                               |
 |      11 | Surveillance Photos     |       100 | Max Flow                                                                    |
 |      12 | Clues                   |        60 | Delaunay + 2-coloring via DFS (approach is correct, implemention incorrect) |
+|      12 | Magician and the Coin   |       100 | DP                                                                          |
 |---------+-------------------------+-----------+-----------------------------------------------------------------------------|
 |         | total                   | 4939/6680 | A lot of time.                                                              |
 
