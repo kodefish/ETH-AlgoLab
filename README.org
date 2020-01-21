@@ -59,6 +59,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 | week 12 | Clues                   |        60 | Delaunay + 2-coloring via DFS (approach is correct, implemention incorrect) |
 |      12 | Magician and the Coin   |       100 | DP                                                                          |
 |      12 | San Fransisco           |       100 | DP                                                                          |
+| Week 13 | Bob's Burden            |       100 | Dijkstra Shortest paths                                                     |
 |---------+-------------------------+-----------+-----------------------------------------------------------------------------|
 |         | total                   | 4939/6680 | A lot of time.                                                              |
 
