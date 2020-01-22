@@ -18,7 +18,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |       3 | First Hit               |       100 | CGAL intersection testing + adversarial input mitigation (random shuffle)   |
 |       3 | Antenna                 |       100 | CGAL Min Circle                                                             |
 |       3 | Almost Antenna          |       100 | CGAL Min Circle and Support Points                                          |
-|  Week 4 | Chariot Race            |        80 | -                                                                           |
+|  Week 4 | Chariot Race            |        80 | DP                                                                          |
 |       4 | First Steps with BGL    |       100 | Basic BGL intro (MST and Dijkstra shortest path)                            |
 |       4 | Ant Challenge           |       100 | Multiple MST and shortest path                                              |
 |       4 | Buddy Selection         |       100 | Maximum Cardinality matching                                                |
@@ -62,6 +62,8 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 | Week 13 | Bob's Burden            |       100 | Dijkstra Shortest paths                                                     |
 |      13 | Corbusier               |        60 | DP                                                                          |
 |      13 | New York                |       100 | DFS + MinMax Sliding window (using a deque)                                 |
+|      13 | Phantom Menace          |         0 |                                                                             |
+|      13 | Worldcup                |        50 | Triangulation + LP (should be 100, but the judge is a b****)                |
 |---------+-------------------------+-----------+-----------------------------------------------------------------------------|
 |         | total                   | 4939/6680 | A lot of time.                                                              |
 
