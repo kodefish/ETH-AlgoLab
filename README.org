@@ -27,11 +27,12 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |       5 | Boats                   |       100 | Greedy Algorithm                                                            |
 |       5 | Light at the Museum     |       100 | Split & List                                                                |
 |       5 | Octopussy               |       100 | Greedy Algorithm                                                            |
+|       5 | Punch                   |       100 | Bottom Up DP                                                                |
 |  Week 6 | Planet Express          |        80 | Shortest paths and vertex aggregation                                       |
 |       6 | Coin Tossing Tournament |       100 | Max flow                                                                    |
 |       6 | Shopping Trip           |       100 | Max flow                                                                    |
 |       6 | Tetris                  |       100 | Max flow and vertex capacity                                                |
-|       6 | London                  |       100 | Max flow and vertex aggregation                                             |
+|       6 | London                  |        60 | Max flow and vertex aggregation                                             |
 |  Week 7 | Attack of the Clones    |         0 | -                                                                           |
 |       7 | Maximize It             |       100 | LP                                                                          |
 |       7 | Diet                    |       100 | LP                                                                          |
