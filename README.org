@@ -34,7 +34,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |       6 | Shopping Trip           |       100 | Max flow                                                                    |
 |       6 | Tetris                  |       100 | Max flow and vertex capacity                                                |
 |       6 | London                  |        60 | Max flow and vertex aggregation                                             |
-|  Week 7 | Attack of the Clones    |         0 | -                                                                           |
+|  Week 7 | Attack of the Clones    |       100 | Greedy                                                                      |
 |       7 | Maximize It             |       100 | LP                                                                          |
 |       7 | Diet                    |       100 | LP                                                                          |
 |       7 | Inball                  |       100 | LP + some highschool maths                                                  |
