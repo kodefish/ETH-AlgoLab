@@ -1,5 +1,7 @@
 * Algorithms Lab 2019
-This repo contains my solutions to the algorithms lab of ETH Zürich. The lab consists of problems every week that must be solved via an algorithm. 
+This repo contains my (almost complete) solutions to the algorithms lab of ETH
+Zürich. The lab consists of weekly algorithmic problems in a competitive
+programming style.
 
 ** Overview
 |    Week | Problem                 |     Score | Solution                                                                    |
@@ -63,7 +65,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      12 | Magician and the Coin   |       100 | DP                                                                          |
 |      12 | San Fransisco           |       100 | DP                                                                          |
 |      12 | Legions                 |         0 | -                                                                           |
-|      12 | Tour de Gaul            |         0 | -                                                                           |
+|      12 | Tour de Gaul            |       100 | MinCost MaxFlow + min/max edge capacities + nonnegative shift               |
 | Week 13 | Bob's Burden            |       100 | Dijkstra Shortest paths                                                     |
 |      13 | Corbusier               |        60 | DP                                                                          |
 |      13 | New York                |       100 | DFS + MinMax Sliding window (using a deque)                                 |
@@ -72,7 +74,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      13 | Worldcup                |        50 | Triangulation + LP (should be 100, but the judge is a b****)                |
 | Week 14 | Carsharing              |       100 | MaxCostMax Flow                                                             |
 |---------+-------------------------+-----------+-----------------------------------------------------------------------------|
-|         | total                   | 5759/6680 | A lot of time.                                                              |
+|         | total                   | 6359/6680 | A lot of time.                                                              |
 
 
 ** Compilation and Running
