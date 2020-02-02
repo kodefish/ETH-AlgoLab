@@ -70,7 +70,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 |      13 | Phantom Menace          |         0 | -                                                                           |
 |      13 | Sith                    |         0 | -                                                                           |
 |      13 | Worldcup                |        50 | Triangulation + LP (should be 100, but the judge is a b****)                |
-| Week 14 | Carsharing              |         0 | -                                                                           |
+| Week 14 | Carsharing              |       100 | MaxCostMax Flow                                                             |
 |---------+-------------------------+-----------+-----------------------------------------------------------------------------|
 |         | total                   | 5759/6680 | A lot of time.                                                              |
 
@@ -241,9 +241,8 @@ e->info() = 42;
   as a bonus it also contains a BFS implementation, should you need inspiration
   for one at some point (like in H1N1 wink wink).
 - If you have negative weights, you can figure out the max weight, and make all
-  your weights positve by replacing ~-cost~ with ~MAX_COST - cost~. Then you
-  have to adjust for it later, when computing the final cost with
-  ~cost = (MAX_COST * flow) - cost~.
+  your weights positve by shifting all the s-t paths by the same amount. You
+  then compensate for it by shifting the result by (MAX_SHIFT * flow) - cost.
 - You can use BGL's ~<boost/pending/disjoint_sets.hpp>~ as an implementation of union
   set.
   #+BEGIN_SRC cpp
