@@ -67,7 +67,7 @@ This repo contains my solutions to the algorithms lab of ETH Zürich. The lab co
 | Week 13 | Bob's Burden            |       100 | Dijkstra Shortest paths                                                     |
 |      13 | Corbusier               |        60 | DP                                                                          |
 |      13 | New York                |       100 | DFS + MinMax Sliding window (using a deque)                                 |
-|      13 | Phantom Menace          |         0 | -                                                                           |
+|      13 | Phantom Menace          |       100 | MinCut MaxFlow with vertex capacity                                         |
 |      13 | Sith                    |         0 | -                                                                           |
 |      13 | Worldcup                |        50 | Triangulation + LP (should be 100, but the judge is a b****)                |
 | Week 14 | Carsharing              |       100 | MaxCostMax Flow                                                             |
