@@ -70,7 +70,7 @@ programming style.
 |      13 | Corbusier               |        60 | DP                                                                          |
 |      13 | New York                |       100 | DFS + MinMax Sliding window (using a deque)                                 |
 |      13 | Phantom Menace          |       100 | MinCut MaxFlow with vertex capacity                                         |
-|      13 | Sith                    |         0 | -                                                                           |
+|      13 | Sith                    |       100 | Delaunay Triangulation + Strongly Connected Components + Binary Search      |
 |      13 | Worldcup                |        50 | Triangulation + LP (should be 100, but the judge is a b****)                |
 | Week 14 | Carsharing              |       100 | MaxCostMax Flow                                                             |
 |---------+-------------------------+-----------+-----------------------------------------------------------------------------|

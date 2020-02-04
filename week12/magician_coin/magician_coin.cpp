@@ -1,47 +1,47 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
-typedef std::vector<int> vec_i;
-typedef std::vector<double> vec_d;
-typedef std::vector<vec_d> vec_dd;
+using namespace std;
 
-const double MEMO_INIT = -1.0;
+const double MEMO_INIT = -1;
 
-double dp(int d, int w, const vec_d &probabilities, const int days, const int m, vec_dd &memo) {
-    if (w >= m) return 1; // reached goal, stop betting
-    if (w == 0 || d == days) return 0; // no more money, or magician left
-
-    if (memo[w][d] != MEMO_INIT) return memo[w][d];
-
-    double prob = 0;
-    for (int j = 0; j <= w; j++) {
-        double prob_by_winning = probabilities[d] * dp(d + 1, w + j, probabilities, days, m, memo);
-        double prob_by_losing = (1 - probabilities[d]) * dp(d + 1, w - j, probabilities, days, m, memo);
-        prob = std::max(prob, prob_by_winning + prob_by_losing);
+double dp(int day, int wealth, int num_days, int min_wealth, const vector<double> &prob, vector<vector<double>> &memo) {
+    if (wealth >= min_wealth) {
+        return 1; // we done
+    }
+    if (day == num_days) {
+        return 0; // magician is gone and we don't have enough
     }
 
-    memo[w][d] = prob;
-    return prob;
+    if (memo[day][wealth] != MEMO_INIT) return memo[day][wealth];
+
+    double p = 0;
+    for (int b = 0; b <= wealth; b++) {
+        double p_win = dp(day + 1, wealth + b, num_days, min_wealth, prob, memo); // prob if we win today and bet b
+        double p_lose = dp(day + 1, wealth - b, num_days, min_wealth, prob, memo); // prob if we lose today and bet b
+        p = std::max(p, (prob[day] * p_win) + ((1 - prob[day]) * p_lose));
+    }
+
+    memo[day][wealth] = p;
+    return p;
 }
 
 void testcase() {
-    int n, k, m; std::cin >> n >> k >> m;
-    vec_d probabilities(n);
-    for (int i = 0; i < n; i++) std::cin >> probabilities[i];
+    int n, k, m; cin >> n >> k >> m;
+    vector<double> prob(n);
+    for (int i = 0; i < n; i++) cin >> prob[i];
 
-
-    vec_dd memo(m, vec_d(n, MEMO_INIT));
-    double prob = dp(0, k, probabilities, n, m, memo);
-
-    std::cout << prob << std::endl;
+    vector<vector<double>> memo(n, vector<double>(m, MEMO_INIT));
+    cout << dp(0, k, n, m, prob, memo) << endl;
 }
 
 int main() {
-    std::ios_base::sync_with_stdio(false);
-    std::cout << std::fixed << std::setprecision(5);
-    int t; std::cin >> t;
+    ios_base::sync_with_stdio(false);
+    cout << fixed << setprecision(5);
+    int t; cin >> t;
     while (t--) testcase();
     return 0;
 }
+
