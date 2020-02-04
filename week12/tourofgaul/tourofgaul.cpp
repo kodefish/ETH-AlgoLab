@@ -86,7 +86,7 @@ void testcase() {
         // Trick to shift negative weights -> all s-t paths shifted by same amount
         int cost = ((b - a) * MAX_WEIGHT) -d;
 
-        // Get rid of parallel edges -> gets the last 10 points
+        // Get rid of parallel edges
         // So check if same edge already exists, and if it does, increase it's capapcity
         out_edge_it ebeg, eend; bool found = false;
         for (boost::tie(ebeg, eend) = boost::out_edges(a, G); ebeg != eend; ebeg++) {
