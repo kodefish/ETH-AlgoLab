@@ -64,10 +64,10 @@ programming style.
 | week 12 | Clues                   |        60 | Delaunay + 2-coloring via DFS (approach is correct, implemention incorrect) |
 |      12 | Magician and the Coin   |       100 | DP                                                                          |
 |      12 | San Fransisco           |       100 | DP                                                                          |
-|      12 | Legions                 |         0 | -                                                                           |
+|      12 | Legions                 |       100 | LP                                                                          |
 |      12 | Tour de Gaul            |       100 | MinCost MaxFlow + min/max edge capacities + nonnegative shift               |
 | Week 13 | Bob's Burden            |       100 | Dijkstra Shortest paths                                                     |
-|      13 | Corbusier               |        60 | DP                                                                          |
+|      13 | Corbusier               |       100 | DP                                                                          |
 |      13 | New York                |       100 | DFS + MinMax Sliding window (using a deque)                                 |
 |      13 | Phantom Menace          |       100 | MinCut MaxFlow with vertex capacity                                         |
 |      13 | Sith                    |       100 | Delaunay Triangulation + Strongly Connected Components + Binary Search      |
